@@ -67,6 +67,8 @@
       console.log('templates:', templates);
     },
   };
+  function app.initMenu () {
 
+  }
   app.init();
 }
