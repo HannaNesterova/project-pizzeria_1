@@ -66,9 +66,10 @@
       console.log('settings:', settings);
       console.log('templates:', templates);
     },
+    initMenu : function() {
+      const testProduct = new Product();
+      console.log('testProduct:', testProduct)
+    }
   };
-  function app.initMenu () {
-
-  }
   app.init();
 }
