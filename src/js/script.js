@@ -77,6 +77,9 @@
       menuContainer.appendChild(thisProduct.element);
       console.log(menuContainer)
     }
+    initAccordion(){
+      const thisProduct = this;
+    }
   }
   const app = {
     initData: function(){
