@@ -60,7 +60,6 @@
 
       thisProduct.renderInMenu();
 
-      console.log('new Product:', thisProduct)
     }
     renderInMenu() {
       const thisProduct = this;
@@ -70,16 +69,21 @@
   
       //cteate element using utils.createElementFromHTML
       thisProduct.element = utils.createDOMFromHTML(generatedHTML);
-      console.log(thisProduct.element)
     
       //find menu container
       const menuContainer = document.querySelector(select.containerOf.menu);
-      console.log(menuContainer)
+
       //add element to menu
       menuContainer.appendChild(thisProduct.element);
+      console.log(menuContainer)
     }
   }
   const app = {
+    initData: function(){
+      const thisApp = this;
+      thisApp.data = dataSource; 
+    },
+
     initMenu : function() {
       const thisApp = this;
 
@@ -89,11 +93,6 @@
       }
       // const testProduct = new Product();
       // console.log('testProduct:', testProduct)
-   
-    },
-    initData: function(){
-      const thisApp = this;
-      thisApp.data = dataSource; 
     },
     init: function(){
       const thisApp = this;
