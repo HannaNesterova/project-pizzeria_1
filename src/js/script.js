@@ -95,16 +95,11 @@
       const activeProduct = document.querySelector(select.all.menuProductsActive);
 
       /* if there is active product and it's not thisProduct.element, remove class active from it */
-      if (activeProduct === thisProduct.element && activeProduct === null) {
+      if (activeProduct != thisProduct.element && activeProduct !== null) {
         activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
       }
-      else if (activeProduct != thisProduct.element && activeProduct !== null){
-        activeProduct.classList.add(classNames.menuProduct.wrapperActive)
-      }
-      /* toggle active class on thisProduct.element */
-      else {
         thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive); 
-      }
+      
     });
 
     }
