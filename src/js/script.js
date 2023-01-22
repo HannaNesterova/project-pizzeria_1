@@ -71,10 +71,12 @@
       //cteate element using utils.createElementFromHTML
       thisProduct.element = utils.createDOMFromHTML(generatedHTML);
       console.log(thisProduct.element)
+    
       //find menu container
-
+      const menuContainer = document.querySelector(select.containerOf.menu);
+      console.log(menuContainer)
       //add element to menu
-
+      menuContainer.appendChild(thisProduct.element);
     }
   }
   const app = {
