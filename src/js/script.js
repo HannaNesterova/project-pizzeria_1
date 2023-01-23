@@ -63,9 +63,10 @@
       thisProduct.data = data;
 
       thisProduct.renderInMenu();
-      thisProduct.initAccordion();
       thisProduct.getElements();
-
+      thisProduct.initAccordion();
+      thisProduct.initOrderForm();
+      thisProduct.processOrder();
     }
     renderInMenu() {
       const thisProduct = this;
@@ -82,6 +83,19 @@
       //add element to menu
       menuContainer.appendChild(thisProduct.element);
       console.log(menuContainer);
+    }
+    getElements(){
+      const thisProduct = this;
+    
+      thisProduct.accordionTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
+      thisProduct.form = thisProduct.element.querySelector(select.menuProduct.form);
+      thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
+      thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
+      thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+
+      thisProduct.accordionTrigger.addEventListener('click', function(event) {
+      })
+      
     }
     initAccordion(){
       const thisProduct = this;
@@ -104,16 +118,30 @@
         thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive); 
       });
     }
-    getElements(){
+    initOrderForm() {
       const thisProduct = this;
-    
-      thisProduct.accordionTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
-      thisProduct.form = thisProduct.element.querySelector(select.menuProduct.form);
-      thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
-      thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
-      thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+     
+      thisProduct.form.addEventListener('submit', function(event){
+        event.preventDefault();
+        thisProduct.processOrder();
+      });
+      
+      for(let input of thisProduct.formInputs){
+        input.addEventListener('change', function(){
+          thisProduct.processOrder();
+        });
+      }
+      
+      thisProduct.cartButton.addEventListener('click', function(event){
+        event.preventDefault();
+        thisProduct.processOrder();
+      });
+
     }
-    
+    processOrder(){
+      const thisProduct = this;
+      console.log(thisProduct);
+    }
   }
   const app = {
     initData: function(){
