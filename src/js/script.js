@@ -89,8 +89,10 @@
 
     /* START: add event listener to clickable trigger on event click */
       clickableTrigger.addEventListener('click', function(event) {
+
       /* prevent default action for event */
       event.preventDefault(); 
+
       /* find active product (product that has active class) */
       const activeProduct = document.querySelector(select.all.menuProductsActive);
 
@@ -99,9 +101,7 @@
         activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
       }
         thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive); 
-      
     });
-
     }
   }
   const app = {
