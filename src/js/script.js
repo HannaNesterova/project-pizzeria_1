@@ -161,13 +161,14 @@
           const option = param.options[optionId];
 
           // check if there is param with a name of paramId in formData and if it includes optionId
-          if(formData[paramId] && formData[paramId].includes(optionId)) {
+          const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
+          if(optionSelected) {
 
             // check if the option is not default
             if(!option.default != true ) {
 
               // add option price to price variable
-              price +=option.price;
+              price += option.price;
             }
           } else {
           // check if the option is default
@@ -177,12 +178,19 @@
               price -= option.price;
             }
           }
+          const optionImage = thisProduct.imageWrapper.querySelectorAll('img.active');
+          console.log(optionImage)
+          if(optionImage) {
+          // Yes! We've found it!
+            
+        }
         }
       }
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
     }
   }
+
   const app = {
     initData: function(){
       const thisApp = this;
