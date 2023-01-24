@@ -108,10 +108,11 @@
 
         /* find active product (product that has active class) */
         const activeProduct = document.querySelector(select.all.menuProductsActive);
+          /* if there is active product and it's not thisProduct.element, remove class active from it */
         if (activeProduct != thisProduct.element && activeProduct !== null) {
           activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
         }
-        /* if there is active product and it's not thisProduct.element, remove class active from it */
+       /* toggle active class on thisProduct.element */
         thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive); 
       });
     }
@@ -161,18 +162,18 @@
           if(formData[paramId] && formData[paramId].includes(optionId)) {
 
             // check if the option is not default
-            if(option.default === false ) {
+            if(!option.default === false ) {
 
               // add option price to price variable
-              price = price +  option.price;
+              price +=option.price;
               console.log(price);
             }
           } else {
           // check if the option is default
-            if(option.default === true) {
+            if(!option.default === true) {
 
               // reduce price variable
-              price = price - option.price;
+              price -= option.price;
               console.log(price);
             }
           }
@@ -211,4 +212,3 @@
   };
   app.init(); 
 }
-
