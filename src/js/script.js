@@ -90,9 +90,10 @@
       thisProduct.accordionTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
       thisProduct.form = thisProduct.element.querySelector(select.menuProduct.form);
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
+      console.log(thisProduct.formInputs)
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
-
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
     initAccordion(){
       const thisProduct = this;
@@ -108,11 +109,11 @@
 
         /* find active product (product that has active class) */
         const activeProduct = document.querySelector(select.all.menuProductsActive);
-          /* if there is active product and it's not thisProduct.element, remove class active from it */
+        /* if there is active product and it's not thisProduct.element, remove class active from it */
         if (activeProduct != thisProduct.element && activeProduct !== null) {
           activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
         }
-       /* toggle active class on thisProduct.element */
+        /* toggle active class on thisProduct.element */
         thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive); 
       });
     }
@@ -144,6 +145,7 @@
 
       // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
       const formData = utils.serializeFormToObject(thisProduct.form);
+      console.log(formData)
 
       // set price to default price
       let price = thisProduct.data.price;
@@ -162,11 +164,10 @@
           if(formData[paramId] && formData[paramId].includes(optionId)) {
 
             // check if the option is not default
-            if(!option.default === false ) {
+            if(!option.default != true ) {
 
               // add option price to price variable
               price +=option.price;
-              console.log(price);
             }
           } else {
           // check if the option is default
@@ -174,7 +175,6 @@
 
               // reduce price variable
               price -= option.price;
-              console.log(price);
             }
           }
         }
