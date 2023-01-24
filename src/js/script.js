@@ -178,19 +178,26 @@
               price -= option.price;
             }
           }
-          const optionImage = thisProduct.imageWrapper.querySelectorAll('img.active');
+          const optionImage = thisProduct.imageWrapper.querySelector('.active');
           console.log(optionImage)
           if(optionImage) {
-          // Yes! We've found it!
-            
-        }
-        }
-      }
+            if(optionSelected){
+                        // Yes! We've found it!
+              optionImage.classList.add('.active');
+            }
+          }
+          if(optionImage === !option.default != true){
+            optionImage.classList.add('.active');
+          } else {
+              optionImage.classList.remove('.active');
+            }
+          }
+    }
+  
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
     }
   }
-
   const app = {
     initData: function(){
       const thisApp = this;
