@@ -110,7 +110,7 @@
         /* find active product (product that has active class) */
         const activeProduct = document.querySelector(select.all.menuProductsActive);
         /* if there is active product and it's not thisProduct.element, remove class active from it */
-        if (activeProduct != thisProduct.element && activeProduct !== null) {
+        if(activeProduct != thisProduct.element && activeProduct !== null) {
           activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
         }
         /* toggle active class on thisProduct.element */
@@ -145,7 +145,6 @@
 
       // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
       const formData = utils.serializeFormToObject(thisProduct.form);
-      console.log(formData);
 
       // set price to default price
       let price = thisProduct.data.price;
@@ -162,20 +161,22 @@
 
           // check if there is param with a name of paramId in formData and if it includes optionId
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
-          if(optionSelected) {
+          if(optionSelected){
 
             // check if the option is not default
-            if(!option.default != true ) {
+            if(!option.default){
 
               // add option price to price variable
               price += option.price;
+              console.log(price)
             }
           } else {
           // check if the option is default
-            if(!option.default === true) {
+            if(!!option.default){
 
               // reduce price variable
               price -= option.price;
+              console.log(price)
             }
           }
         
@@ -188,7 +189,6 @@
               optionImage.classList.remove('active');
             }
           }
-         
         }
       }
       // update calculated price in the HTML
