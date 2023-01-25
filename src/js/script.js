@@ -90,7 +90,7 @@
       thisProduct.accordionTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
       thisProduct.form = thisProduct.element.querySelector(select.menuProduct.form);
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
-      console.log(thisProduct.formInputs)
+      console.log(thisProduct.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
       thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
@@ -145,7 +145,7 @@
 
       // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
       const formData = utils.serializeFormToObject(thisProduct.form);
-      console.log(formData)
+      console.log(formData);
 
       // set price to default price
       let price = thisProduct.data.price;
@@ -178,22 +178,19 @@
               price -= option.price;
             }
           }
-          const optionImage = thisProduct.imageWrapper.querySelector('.active');
-          console.log(optionImage)
+        
+          const optionImage = thisProduct.imageWrapper.querySelector('.' + paramId + '-' + optionId);
+
           if(optionImage) {
-            if(optionSelected){
-                        // Yes! We've found it!
-              optionImage.classList.add('.active');
+            if(optionSelected) {
+              optionImage.classList.add('active');
+            } else {
+              optionImage.classList.remove('active');
             }
           }
-          if(optionImage === !option.default != true){
-            optionImage.classList.add('.active');
-          } else {
-              optionImage.classList.remove('.active');
-            }
-          }
-    }
-  
+         
+        }
+      }
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
     }
