@@ -66,7 +66,9 @@
       thisProduct.getElements();
       thisProduct.initAccordion();
       thisProduct.initOrderForm();
+      thisProduct.initAmountWidget();
       thisProduct.processOrder();
+
     }
     renderInMenu() {
       const thisProduct = this;
@@ -142,6 +144,13 @@
       });
 
     }
+       
+    initAmountWidget(){
+      const thisProduct = this;
+
+      thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidget);
+      
+    }
     processOrder(){
       const thisProduct = this;
 
@@ -195,6 +204,7 @@
       thisProduct.priceElem.innerHTML = price;
     }
   }
+
   const app = {
     initData: function(){
       const thisApp = this;
@@ -222,13 +232,24 @@
       thisApp.initMenu();
     },
   };
+  
   class AmountWidget {
     constructor(element){
       const thisWidget = this;
 
       console.log('AmountWidget:', thisWidget);
       console.log('constructor argument:', element);
+
+      thisWidget.getElements(element);
     }
-  }
+      getElements(element){
+        const thisWidget = this;
+      
+        thisWidget.element = element;
+        thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
+        thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
+        thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
+      }
+}
   app.init(); 
 }
