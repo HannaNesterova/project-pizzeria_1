@@ -82,7 +82,7 @@
 
       //add element to menu
       menuContainer.appendChild(thisProduct.element);
-      console.log(menuContainer);
+      //console.log(menuContainer);
     }
     getElements(){
       const thisProduct = this;
@@ -90,10 +90,12 @@
       thisProduct.accordionTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
       thisProduct.form = thisProduct.element.querySelector(select.menuProduct.form);
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
-      console.log(thisProduct.formInputs);
+      //console.log(thisProduct.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
       thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
+      thisProduct.amountWidget = thisProduct.element.querySelector(select.menuProduct.amountWidget);
+      console.log(thisProduct.amountWidget)
     }
     initAccordion(){
       const thisProduct = this;
@@ -168,15 +170,13 @@
 
               // add option price to price variable
               price += option.price;
-              console.log(price)
             }
           } else {
           // check if the option is default
-            if(!!option.default){
+            if(option.default === true){
 
               // reduce price variable
               price -= option.price;
-              console.log(price)
             }
           }
         
@@ -212,15 +212,23 @@
     },
     init: function(){
       const thisApp = this;
-      console.log('*** App starting ***');
+      /*console.log('*** App starting ***');
       console.log('thisApp:', thisApp);
       console.log('classNames:', classNames);
       console.log('settings:', settings);
-      console.log('templates:', templates);
+      console.log('templates:', templates);*/
 
       thisApp.initData();
       thisApp.initMenu();
     },
   };
+  class AmountWidget {
+    constructor(element){
+      const thisWidget = this;
+
+      console.log('AmountWidget:', thisWidget);
+      console.log('constructor argument:', element);
+    }
+  }
   app.init(); 
 }
