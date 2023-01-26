@@ -242,6 +242,19 @@
 
       thisWidget.getElements(element);
     }
+    setValue(value){
+      const thisWidget = this;
+
+      const newValue = parseInt(value);
+
+      //TO DO : add validation 
+      thisWidget.value = newValue;
+      thisWidget.input.value = thisWidget.value;
+      if(thisWidget.value !== newValue && !isNaN(newValue)){
+        thisWidget.value = newValue;
+      } 
+    }
+
       getElements(element){
         const thisWidget = this;
       
