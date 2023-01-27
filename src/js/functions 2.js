@@ -35,6 +35,7 @@ utils.serializeFormToObject = function(form){
   }
   return output;
 };
+
 utils.convertDataSourceToDbJson = function(){
   const productJson = [];
   for(let key in dataSource.products){
@@ -43,7 +44,6 @@ utils.convertDataSourceToDbJson = function(){
 
   console.log(JSON.stringify({product: productJson, order: []}, null, '  '));
 };
-
 
 Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
   return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
