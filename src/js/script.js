@@ -324,8 +324,11 @@ const settings = {
       thisCart.dom.wrapper.addEventListener('click', function(element){
     
         if(!!thisCart.dom.wrapper){
-          thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
+          thisCart.dom.wrapper.classList.add(classNames.cart.wrapperActive);
+        } else if(thisCart.dom.wrapper === select.cart.formSubmit || thisCart.dom.wrapper === select.cart.toggleTrigger){
+          thisCart.dom.wrapper.classList.remove(classNames.cart.wrapperActive);
         }
+        //thisCart.dom.element.wrapper.classList.toggle(classNames.cart.wrapperActive);
       });
   };
   }
