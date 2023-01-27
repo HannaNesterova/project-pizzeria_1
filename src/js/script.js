@@ -350,7 +350,7 @@ const settings = {
       thisCart.dom.wrapper = element;
 
       thisCart.dom.toggleTrigger = element.querySelector(select.cart.toggleTrigger)
-      console.log(thisCart.dom.toggleTrigger)
+      console.log(thisCart.dom.toggleTrigger);
     }
   }
   app.init(); 
