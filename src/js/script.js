@@ -96,8 +96,8 @@
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
       thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
-      thisProduct.amountWidget = thisProduct.element.querySelector(select.menuProduct.amountWidget);
-      console.log(thisProduct.amountWidget)
+      thisProduct.amountWidgetElement = thisProduct.element.querySelector(select.menuProduct.amountWidget);
+      console.log(thisProduct.amountWidgetElement)
     }
     initAccordion(){
       const thisProduct = this;
@@ -144,8 +144,13 @@
     initAmountWidget(){
       const thisProduct = this;
 
-      thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidget);
+      thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElement);
+      console.log(thisProduct.AmountWidget)
+      thisProduct.amountWidgetElement.addEventListener('click',function(updated){
+        thisProduct.processOrder();
+      });
       
+
     }
     processOrder(){
       const thisProduct = this;
@@ -197,6 +202,7 @@
         }
       }
       // update calculated price in the HTML
+      price *= thisProduct.amountWidget.value;
       thisProduct.priceElem.innerHTML = price;
     }
   }
@@ -257,10 +263,10 @@
 
       if(thisWidget.value !== newValue && !isNaN(newValue)){
         thisWidget.value = newValue;
-      } if(thisWidget.value <= settings.amountWidget.defaultMin){
-        thisWidget.value = 2;
+      } if(thisWidget.value < settings.amountWidget.defaultMin){
+        thisWidget.value = 1;
       } if(thisWidget.value > settings.amountWidget.defaultMax){
-        thisWidget.value = 9;
+        thisWidget.value = 10;
       }
 
       thisWidget.announce();//- I'm not sure
