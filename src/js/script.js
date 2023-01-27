@@ -257,10 +257,10 @@
 
       if(thisWidget.value !== newValue && !isNaN(newValue)){
         thisWidget.value = newValue;
-      } if(thisWidget.value < settings.amountWidget.defaultMin){
-        thisWidget.value = 10;
+      } if(thisWidget.value <= settings.amountWidget.defaultMin){
+        thisWidget.value = 2;
       } if(thisWidget.value > settings.amountWidget.defaultMax){
-        thisWidget.value = 1;
+        thisWidget.value = 9;
       }
 
       thisWidget.announce();//- I'm not sure
