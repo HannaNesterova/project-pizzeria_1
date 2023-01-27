@@ -238,41 +238,6 @@ const settings = {
       thisProduct.priceElem.innerHTML = price;
     }
   }
-
-  const app = {
-    initData: function(){
-      const thisApp = this;
-      thisApp.data = dataSource; 
-    },
-
-    initMenu : function() {
-      const thisApp = this;
-
-      for(let productData in thisApp.data.products){
-        new Product(productData, thisApp.data.products[productData]);
-      }
-      // const testProduct = new Product();
-      // console.log('testProduct:', testProduct)
-    },
-    init: function(){
-      const thisApp = this;
-      /*console.log('*** App starting ***');
-      console.log('thisApp:', thisApp);
-      console.log('classNames:', classNames);
-      console.log('settings:', settings);
-      console.log('templates:', templates);*/
-
-      thisApp.initData();
-      thisApp.initMenu();
-      thisApp.initCart();
-    },
-    initCart: function(){
-      const thisApp = this;
-
-      const cartElem = document.querySelector(select.containerOf.cart);
-      thisApp.cart = new Cart(cartElem);
-    },
-  };
   
   class AmountWidget {
     constructor(element){
@@ -339,6 +304,7 @@ const settings = {
       thisCart.products =[];
 
       thisCart.getElements(element);
+      thisCart.initActions();
 
       console.log('new Cart', thisCart);
     }
@@ -352,7 +318,47 @@ const settings = {
       thisCart.dom.toggleTrigger = element.querySelector(select.cart.toggleTrigger)
       console.log(thisCart.dom.toggleTrigger);
     }
+    initActions(){
+      const thisCart = this;
+
+      thisCart.dom.wrapper.addEventListener('click', function(element){
+    
+        if(!!thisCart.dom.wrapper){
+          thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
+        }
+      });
+  };
   }
+  const app = {
+    initData: function(){
+      const thisApp = this;
+      thisApp.data = dataSource; 
+    },
+
+    initMenu : function() {
+      const thisApp = this;
+
+      for(let productData in thisApp.data.products){
+        new Product(productData, thisApp.data.products[productData]);
+      }
+      // const testProduct = new Product();
+      // console.log('testProduct:', testProduct)
+    },
+    init: function(){
+      const thisApp = this;
+
+      thisApp.initData();
+      thisApp.initMenu();
+      thisApp.initCart();
+    },
+    initCart: function(){
+      const thisApp = this;
+
+      const cartElem = document.querySelector(select.containerOf.cart);
+      thisApp.cart = new Cart(cartElem);
+      console.log(cartElem)
+    },
+  };
   app.init(); 
 
 }
