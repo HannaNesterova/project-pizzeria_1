@@ -121,9 +121,6 @@
         thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive); 
       });
     }
-
-
-   
     initOrderForm() {
       const thisProduct = this;
      
@@ -144,7 +141,6 @@
       });
 
     }
-       
     initAmountWidget(){
       const thisProduct = this;
 
@@ -237,32 +233,59 @@
     constructor(element){
       const thisWidget = this;
 
-      console.log('AmountWidget:', thisWidget);
-      console.log('constructor argument:', element);
-
       thisWidget.getElements(element);
+      thisWidget.initActions();   
+    }
+    getElements(element){
+      const thisWidget = this;
+    
+      thisWidget.element = element;
+      thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
+      thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
+      thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
+      thisWidget.setValue(thisWidget.input.value);
     }
     setValue(value){
       const thisWidget = this;
-
+      thisWidget.value = settings.amountWidget.defaultValue;
       const newValue = parseInt(value);
 
       //TO DO : add validation 
       thisWidget.value = newValue;
       thisWidget.input.value = thisWidget.value;
+      console.log(thisWidget.value)
+
       if(thisWidget.value !== newValue && !isNaN(newValue)){
         thisWidget.value = newValue;
-      } 
+      } if(thisWidget.value < settings.amountWidget.defaultMin){
+        thisWidget.value = 10;
+      } if(thisWidget.value > settings.amountWidget.defaultMax){
+        thisWidget.value = 1;
+      }
+
+      thisWidget.announce();//- I'm not sure
     }
 
-      getElements(element){
+      initActions(){
         const thisWidget = this;
-      
-        thisWidget.element = element;
-        thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
-        thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
-        thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
+
+        thisWidget.input.addEventListener('change', function (){
+          thisWidget.setValue(thisWidget.input.value)
+        });
+        thisWidget.linkDecrease.addEventListener('click',function(){
+          thisWidget.setValue(thisWidget.value -1)
+        });
+        thisWidget.linkIncrease.addEventListener('click',function (){
+          thisWidget.setValue(thisWidget.value +1)
+        });
       }
+      announce(){
+        const thisWidget = this;
+
+        const event = new Event('updated');
+        thisWidget.element.dispatchEvent(event);
+      }
+
 }
   app.init(); 
 }
