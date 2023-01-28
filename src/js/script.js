@@ -238,14 +238,15 @@
       }
       // update calculated price in the HTML
       price *= thisProduct.amountWidget.value;
-      const priseSingle = price;
-      console.log(priseSingle)
+      thisProduct.priseSingle = price;
+      console.log(thisProduct.priseSingle)
       thisProduct.priceElem.innerHTML = price;
     }
     addToCart(){
       const thisProduct = this;
 
-      app.cart.add(thisProduct);
+      app.cart.add(thisProduct.prepareCartProduct);
+      console.log(app.cart.add);
     }
     readyCartProduct (){
       const thisProduct = this;
@@ -258,7 +259,13 @@
         id: thisProduct.id,
         name:thisProduct.name ,
         amount:thisProduct.amount,
+        params:""
       };
+
+      const priseSingle = thisProduct.priceSingle;
+      const price = thisProduct.priceSingle;
+      console.log(price)
+      console.log(priseSingle)
       console.log(productSummary)
 
       // const id = thisProduct.querySelector(thisProduct.id);
@@ -269,6 +276,37 @@
 
       // console.log(amount);
  
+    }
+    readyCartProductParams(){
+      prepareCartProductParams() {
+        const thisProduct = this;
+      
+        const formData = utils.serializeFormToObject(thisProduct.form);
+        const params = {};
+      
+        // for very category (param)
+        for(let paramId in thisProduct.data.params) {
+          const param = thisProduct.data.params[paramId];
+      
+          // create category param in params const eg. params = { ingredients: { name: 'Ingredients', options: {}}}
+          params[paramId] = {
+            label: param.label,
+            options: {}
+          }
+      
+          // for every option in this category
+          for(let optionId in param.options) {
+            const option = param.options[optionId];
+            const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
+      
+            if(optionSelected) {
+              // option is selected!
+            }
+          }
+        }
+      
+        return params;
+      }
     }
   }
   
