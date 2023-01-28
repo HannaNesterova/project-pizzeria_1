@@ -268,6 +268,8 @@
       console.log(priseSingle)
       console.log(productSummary)
 
+      return productSummary;
+
       // const id = thisProduct.querySelector(thisProduct.id);
       // console.log(id);
       // const name = thisProduct.querySelector(thisProduct.name);
@@ -278,6 +280,7 @@
  
     }
     readyCartProductParams(){
+    }
       prepareCartProductParams() {
         const thisProduct = this;
       
@@ -304,10 +307,8 @@
             }
           }
         }
-      
         return params;
       }
-    }
   }
   
   class AmountWidget {
