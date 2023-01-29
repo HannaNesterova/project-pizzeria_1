@@ -241,12 +241,14 @@
       thisProduct.priseSingle = price;
       console.log(thisProduct.priseSingle)
       thisProduct.priceElem.innerHTML = price;
+    console.log(thisProduct.priceElem.innerHTML)
     }
     addToCart(){
       const thisProduct = this;
 
       app.cart.add(thisProduct.prepareCartProduct);
       console.log(app.cart.add);
+      console.log(this.addToCart)
     }
     readyCartProduct (){
       const thisProduct = this;
@@ -255,28 +257,28 @@
     prepareCartProduct() {
       const thisProduct = this;
 
+       /*const id = id;
+      console.log(id);
+      const name = thisProduct.formInputs.name;
+      console.log(name);
+      const amount = thisProduct.amount;
+      console.log(amount);*/
+      
       const productSummary = {
-        id: thisProduct.id,
-        name:thisProduct.name ,
-        amount:thisProduct.amount,
-        params:""
-      };
+        id : thisProduct(thisProduct.id),
+        name : thisProduct(thisProduct.name),
+        amount :thisProduct(thisProduct.amount),
+        params :  ""
+      }
 
-      const priseSingle = thisProduct.priceSingle;
-      const price = thisProduct.priceSingle;
+      const priseSingle = thisProduct.priceSingle(Product);
+      const price = price * thisProduct.amountWidget.value;
       console.log(price)
       console.log(priseSingle)
-      console.log(productSummary)
+      console.dir(productSummary)
 
-      return productSummary;
-
-      // const id = thisProduct.querySelector(thisProduct.id);
-      // console.log(id);
-      // const name = thisProduct.querySelector(thisProduct.name);
-      // console.log(name);
-      // const amount = thisProduct.querySelector(thisProduct.amount);
-
-      // console.log(amount);
+      //return productSummary;
+ 
  
     }
     readyCartProductParams(){
