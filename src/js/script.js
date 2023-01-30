@@ -192,9 +192,11 @@
 
       // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
       const formData = utils.serializeFormToObject(thisProduct.form);
+      console.log(formData);
 
       // set price to default price
       let price = thisProduct.data.price;
+      console.log(price)
 
       // for every category (param)...
       for(let paramId in thisProduct.data.params) {
@@ -246,30 +248,21 @@
     addToCart(){
       const thisProduct = this;
 
-      app.cart.add(thisProduct.prepareCartProduct);
+      app.cart.add(thisProduct.productSummary);
       console.log(app.cart.add);
       console.log(this.addToCart);
     }
     readyCartProduct (){
       const thisProduct = this;
-      console.log(thisProduct);
 
-    }
-    prepareCartProduct() {
-      const thisProduct = this;
-      /*const id = id;
-      console.log(id);
-      const name = thisProduct.formInputs.name;
-      console.log(name);
-      const amount = thisProduct.amount;
-      console.log(amount);*/
-      
       const productSummary = {
-        id : thisProduct(thisProduct.id),
-        name : thisProduct(thisProduct.name),
-        amount :thisProduct(thisProduct.amount),
-        params :  '',
+        id : thisProduct.id,
+        name : thisProduct.data.name,
+        amount :thisProduct.amountWidget.value,
+        params :  thisProduct.readyCartProductParams(),
       };
+      console.log(productSummary);
+
 
       const priseSingle = thisProduct.priceSingle(Product);
       const price = price * thisProduct.amountWidget.value;
@@ -277,32 +270,29 @@
       console.log(priseSingle);
       console.dir(productSummary);
 
-      //return productSummary;
- 
- 
+      return productSummary;
     }
-    readyCartProductParams(){
-    }
-    prepareCartProductParams() {
+    readyCartProductParams() {
       const thisProduct = this;
-      
+      //cover form to object structure {sauce:['tomato']}, toppings: ets...
       const formData = utils.serializeFormToObject(thisProduct.form);
       const params = {};
       
       // for very category (param)
       for(let paramId in thisProduct.data.params) {
+        //determine params value
         const param = thisProduct.data.params[paramId];
-      
         // create category param in params const eg. params = { ingredients: { name: 'Ingredients', options: {}}}
         params[paramId] = {
           label: param.label,
           options: {}
         };
-      
         // for every option in this category
         for(let optionId in param.options) {
+          //determine option value
           const option = param.options[optionId];
           console.log(option);
+          //check if is psrsm with a name of paramId in formData and if it includes optionId
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
       
           if(optionSelected) {
@@ -420,7 +410,7 @@
   
 
     add(menuProduct){
-      // const thisCart = this;
+      //const thisCart = this;
 
       console.log('adding product', menuProduct);
     }
