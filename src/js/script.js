@@ -184,8 +184,7 @@
         e.preventDefault();
         thisProduct.processOrder();
       });
-      
-
+      console.log(this.initAmountWidget);
     }
     processOrder(){
       const thisProduct = this;
@@ -248,7 +247,7 @@
     addToCart(){
       const thisProduct = this;
 
-      app.cart.add(thisProduct.productSummary);
+      app.cart.add(thisProduct);
       console.log(app.cart.add);
       console.log(this.addToCart);
     }
@@ -258,7 +257,7 @@
       const productSummary = {
         id : thisProduct.id,
         name : thisProduct.data.name,
-        amount :thisProduct.amountWidget.value,
+        amount :thisProduct.amount.value,
         params :  thisProduct.readyCartProductParams(),
       };
       console.log(productSummary);
@@ -278,7 +277,7 @@
       const formData = utils.serializeFormToObject(thisProduct.form);
       const params = {};
       
-      // for very category (param)
+      // for every category (param)
       for(let paramId in thisProduct.data.params) {
         //determine params value
         const param = thisProduct.data.params[paramId];
@@ -372,22 +371,19 @@
       const thisCart = this;
 
       thisCart.products =[];
-
       thisCart.getElements(element);
       thisCart.initActions();
-
       console.log('new Cart', thisCart);
     }
+
     getElements(element){
       const thisCart = this;
-
       thisCart.dom = {};
-
       thisCart.dom.wrapper = element;
-
       thisCart.dom.toggleTrigger = element.querySelector(select.cart.toggleTrigger);
       console.log(thisCart.dom.toggleTrigger);
     }
+
     initActions(){
       const thisCart = this;
 
