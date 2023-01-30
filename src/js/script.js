@@ -239,25 +239,25 @@
       // update calculated price in the HTML
       price *= thisProduct.amountWidget.value;
       thisProduct.priseSingle = price;
-      console.log(thisProduct.priseSingle)
+      console.log(thisProduct.priseSingle);
       thisProduct.priceElem.innerHTML = price;
-    console.log(thisProduct.priceElem.innerHTML)
+      console.log(thisProduct.priceElem.innerHTML);
     }
     addToCart(){
       const thisProduct = this;
 
       app.cart.add(thisProduct.prepareCartProduct);
       console.log(app.cart.add);
-      console.log(this.addToCart)
+      console.log(this.addToCart);
     }
     readyCartProduct (){
       const thisProduct = this;
+      console.log(thisProduct);
 
     }
     prepareCartProduct() {
       const thisProduct = this;
-
-       /*const id = id;
+      /*const id = id;
       console.log(id);
       const name = thisProduct.formInputs.name;
       console.log(name);
@@ -268,14 +268,14 @@
         id : thisProduct(thisProduct.id),
         name : thisProduct(thisProduct.name),
         amount :thisProduct(thisProduct.amount),
-        params :  ""
-      }
+        params :  '',
+      };
 
       const priseSingle = thisProduct.priceSingle(Product);
       const price = price * thisProduct.amountWidget.value;
-      console.log(price)
-      console.log(priseSingle)
-      console.dir(productSummary)
+      console.log(price);
+      console.log(priseSingle);
+      console.dir(productSummary);
 
       //return productSummary;
  
@@ -283,34 +283,35 @@
     }
     readyCartProductParams(){
     }
-      prepareCartProductParams() {
-        const thisProduct = this;
+    prepareCartProductParams() {
+      const thisProduct = this;
       
-        const formData = utils.serializeFormToObject(thisProduct.form);
-        const params = {};
+      const formData = utils.serializeFormToObject(thisProduct.form);
+      const params = {};
       
-        // for very category (param)
-        for(let paramId in thisProduct.data.params) {
-          const param = thisProduct.data.params[paramId];
+      // for very category (param)
+      for(let paramId in thisProduct.data.params) {
+        const param = thisProduct.data.params[paramId];
       
-          // create category param in params const eg. params = { ingredients: { name: 'Ingredients', options: {}}}
-          params[paramId] = {
-            label: param.label,
-            options: {}
-          }
+        // create category param in params const eg. params = { ingredients: { name: 'Ingredients', options: {}}}
+        params[paramId] = {
+          label: param.label,
+          options: {}
+        };
       
-          // for every option in this category
-          for(let optionId in param.options) {
-            const option = param.options[optionId];
-            const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
+        // for every option in this category
+        for(let optionId in param.options) {
+          const option = param.options[optionId];
+          console.log(option);
+          const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
       
-            if(optionSelected) {
-              // option is selected!
-            }
+          if(optionSelected) {
+            // option is selected!
           }
         }
-        return params;
       }
+      return params;
+    }
   }
   
   class AmountWidget {
@@ -402,7 +403,7 @@
         } else if(thisCart.dom.wrapper === select.cart.formSubmit || thisCart.dom.wrapper === select.cart.toggleTrigger){
           thisCart.dom.wrapper.classList.remove(classNames.cart.wrapperActive);
         }
-        //thisCart.dom.element.wrapper.classList.toggle(classNames.cart.wrapperActive);
+        thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
       });
     }
 
