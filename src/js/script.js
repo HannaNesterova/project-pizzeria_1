@@ -73,8 +73,8 @@
   const settings = {
     amountWidget: {
       defaultValue: 1,
-      defaultMin: 1,
-      defaultMax: 9,
+      defaultMin: 0,
+      defaultMax: 10,
     }, // CODE CHANGED
     // CODE ADDED START
     cart: {
@@ -333,23 +333,28 @@
     }
     setValue(value){
       const thisWidget = this;
-      thisWidget.value = settings.amountWidget.defaultValue;
+      // thisWidget.value = defaults.amountWidget.defaultValue;
       const newValue = parseInt(value);
 
-      //TO DO : add validation 
-      thisWidget.value = newValue;
-      thisWidget.input.value = thisWidget.value;
-      console.log(thisWidget.value);
+      // //TO DO : add validation 
 
-      if(thisWidget.value !== newValue && !isNaN(newValue)){
-        thisWidget.value = newValue;
-      } if(thisWidget.value < settings.amountWidget.defaultMin){
-        thisWidget.value = 1;
-      } if(thisWidget.value > settings.amountWidget.defaultMax){
-        thisWidget.value = 10;
+      const {
+        amountWidget: { defaultMax, defaultMin },
+      } = settings;
+      if (newValue > defaultMax || newValue < defaultMin) {
+        return;
       }
 
-      thisWidget.announce();//- I'm not sure
+      if (thisWidget.value !== newValue) {
+        thisWidget.value = newValue;
+      }
+      /*TODO: Add validation*/
+      if (thisWidget.value !== newValue && isNaN(newValue)) {
+        thisWidget.value = newValue;
+      }
+      thisWidget.value = newValue;
+      thisWidget.input.value = thisWidget.value;
+      thisWidget.announce();
     }
 
     initActions(){
@@ -398,14 +403,15 @@
 
       thisCart.dom.wrapper.addEventListener('click', function(e){
         e.preventDefault();
-        if(thisCart.dom.wrapper){
-          thisCart.dom.wrapper.classList.add(classNames.cart.wrapperActive);
-        } else if(thisCart.dom.wrapper === select.cart.formSubmit || thisCart.dom.wrapper === select.cart.toggleTrigger){
-          thisCart.dom.wrapper.classList.remove(classNames.cart.wrapperActive);
-        }
+        // if(thisCart.dom.wrapper){
+        //   thisCart.dom.wrapper.classList.add(classNames.cart.wrapperActive);
+        // } else if(thisCart.dom.wrapper === select.cart.formSubmit || thisCart.dom.wrapper === select.cart.toggleTrigger){
+        //   thisCart.dom.wrapper.classList.remove(classNames.cart.wrapperActive);
+        // }
         thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
       });
     }
+  
 
     add(menuProduct){
       // const thisCart = this;
@@ -440,7 +446,6 @@
 
       const cartElem = document.querySelector(select.containerOf.cart);
       thisApp.cart = new Cart(cartElem);
-      console.log(cartElem);
     },
   };
   app.init(); 
