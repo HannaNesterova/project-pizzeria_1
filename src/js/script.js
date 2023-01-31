@@ -302,9 +302,8 @@
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
           console.log(optionSelected);
       
-          if(optionSelected) {
-            // option is selected!
-              params[paramId].options = optionSelected;
+          if (optionSelected){ 
+            params[paramId].options[optionId] = option.label; 
           }
         }
       }
@@ -312,6 +311,7 @@
     }
   
   }
+ 
 
 
   
@@ -426,8 +426,6 @@
       // })
   };
     
-
-
       add(menuProduct){
       const thisCart = this;
 
@@ -447,11 +445,8 @@
 
       //add element to menu
   thisCart.dom.productList.appendChild(generatedDOM);
-      
+      console.log('type', menuProduct)
     }
- 
-
- 
 }
   const app = {
     initData: function(){
