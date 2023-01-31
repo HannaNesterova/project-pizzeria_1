@@ -445,7 +445,10 @@
 
       //add element to menu
   thisCart.dom.productList.appendChild(generatedDOM);
-      console.log('type', menuProduct)
+      console.log('type', menuProduct);
+
+      thisCart.products.push(menuProduct);
+      console.log('thisCart.products', thisCart.products);
     }
 }
   const app = {
