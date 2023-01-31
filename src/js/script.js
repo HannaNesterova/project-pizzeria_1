@@ -254,7 +254,6 @@
         amount :thisProduct.amountWidget.value,
         params :  thisProduct.readyCartProductParams(),
       };
-      console.log(id);
       console.log(productSummary);
 
 
@@ -400,22 +399,6 @@
           thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
       })
     }
-
-      // thisCart.dom.wrapper.addEventListener('click', function(e){
-      //   e.preventDefault();
-      //   if(thisCart.dom.wrapper){
-      //     thisCart.dom.wrapper.classList.add(classNames.cart.wrapperActive);
-      //   } else if(select.cart.formSubmit === true || select.cart.toggleTrigger === true){
-      //     thisCart.dom.wrapper.classList.remove(classNames.cart.wrapperActive);
-      //   } else{
-      //     thisCart.dom.wrapper.classList.remove(classNames.cart.wrapperActive);
-      //   }
-      //   console.log(thisCart.dom.wrapper);
-      //  else{
-      //   thisCart.dom.wrapper.classList.remove(classNames.cart.wrapperActive);
-      //  }
-        //thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
-      // });
     
   
 
