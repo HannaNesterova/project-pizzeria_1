@@ -395,7 +395,7 @@
     initActions(){
       const thisCart = this;
 
-      thisCart.dom.wrapper.addEventListener('click', function(e){
+      thisCart.dom.toggleTrigger.addEventListener('click', function(e){
         e.preventDefault();
           thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
       })
