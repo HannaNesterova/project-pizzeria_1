@@ -103,8 +103,7 @@
       thisProduct.initAmountWidget();
       thisProduct.processOrder();
 
-      thisProduct.readyCartProduct();
-      console.log(thisProduct.readyCartProduct);
+
 
     }
     renderInMenu() {
@@ -250,7 +249,7 @@
     addToCart(){
       const thisProduct = this;
 
-      app.cart.add(thisProduct);
+      app.cart.add(thisProduct.readyCartProduct());
     }
 
     readyCartProduct (){
@@ -263,7 +262,7 @@
         amount :thisProduct.amountWidget.value,
         priceSingle: thisProduct.priseSingle,
         price: thisProduct.priseSingle  * thisProduct.amountWidget.value,
-        //params :  thisProduct.readyCartProductParams(),
+        params :  thisProduct.readyCartProductParams(),
       };
       return productSummary;
       console.log(productSummary);
@@ -288,7 +287,7 @@
           label: param.label,
           options: {}
         };
-        console.log(param[paramId]);
+        console.log(params[paramId]);
         // for every option in this category
         for(let optionId in param.options) {
           //determine option value
@@ -300,7 +299,7 @@
       
           if(optionSelected) {
             // option is selected!
-
+              params[paramId].options = optionSelected;
           }
         }
       }
