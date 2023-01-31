@@ -195,7 +195,7 @@
 
       // set price to default price
       let price = thisProduct.data.price;
-      console.log(price)
+      console.log(price);
 
       // for every category (param)...
       for(let paramId in thisProduct.data.params) {
@@ -244,48 +244,51 @@
       thisProduct.priceElem.innerHTML = price;
       console.log(thisProduct.priceElem.innerHTML);
     }
-    addToCart(){
-      const thisProduct = this;
 
-      app.cart.add(thisProduct);
-      console.log(app.cart.add);
-      console.log(this.addToCart);
-    }
     readyCartProduct (){
       const thisProduct = this;
 
       const productSummary = {
         id : thisProduct.id,
         name : thisProduct.data.name,
-        amount :thisProduct.amount.value,
+        amount :thisProduct.amountWidget.value,
         params :  thisProduct.readyCartProductParams(),
       };
+      console.log(id);
       console.log(productSummary);
 
 
       const priseSingle = thisProduct.priceSingle(Product);
       const price = price * thisProduct.amountWidget.value;
-      console.log(price);
       console.log(priseSingle);
-      console.dir(productSummary);
 
       return productSummary;
     }
+    addToCart(){
+      const thisProduct = this;
+
+      app.cart.add(thisProduct);
+      console.log(app.cart.add);
+    }
     readyCartProductParams() {
+      console.log(readyCartProductParams);
       const thisProduct = this;
       //cover form to object structure {sauce:['tomato']}, toppings: ets...
       const formData = utils.serializeFormToObject(thisProduct.form);
+      console.log(formData);
       const params = {};
       
       // for every category (param)
       for(let paramId in thisProduct.data.params) {
         //determine params value
         const param = thisProduct.data.params[paramId];
+        console.log(param);
         // create category param in params const eg. params = { ingredients: { name: 'Ingredients', options: {}}}
         params[paramId] = {
           label: param.label,
           options: {}
         };
+        console.log(param[paramId]);
         // for every option in this category
         for(let optionId in param.options) {
           //determine option value
@@ -293,15 +296,20 @@
           console.log(option);
           //check if is psrsm with a name of paramId in formData and if it includes optionId
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
+          console.log(optionSelected);
       
           if(optionSelected) {
             // option is selected!
+            params[paramId] += optionSelected;
           }
         }
       }
       return params;
     }
+  
   }
+
+  //thisProduct({params:[]})
   
   class AmountWidget {
     constructor(element){
@@ -374,7 +382,7 @@
       thisCart.getElements(element);
       thisCart.initActions();
       console.log('new Cart', thisCart);
-    }
+        }
 
     getElements(element){
       const thisCart = this;
@@ -389,24 +397,30 @@
 
       thisCart.dom.wrapper.addEventListener('click', function(e){
         e.preventDefault();
-         if(thisCart.dom.wrapper){
-           thisCart.dom.wrapper.classList.add(classNames.cart.wrapperActive);
-         } else if(select.cart.formSubmit === true || select.cart.toggleTrigger === true){
-          thisCart.dom.wrapper.classList.remove(classNames.cart.wrapperActive);
-        } else{
-        thisCart.dom.wrapper.classList.remove(classNames.cart.wrapperActive);
-        }
-       console.log(thisCart.dom.wrapper)
+          thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
+      })
+    }
+
+      // thisCart.dom.wrapper.addEventListener('click', function(e){
+      //   e.preventDefault();
+      //   if(thisCart.dom.wrapper){
+      //     thisCart.dom.wrapper.classList.add(classNames.cart.wrapperActive);
+      //   } else if(select.cart.formSubmit === true || select.cart.toggleTrigger === true){
+      //     thisCart.dom.wrapper.classList.remove(classNames.cart.wrapperActive);
+      //   } else{
+      //     thisCart.dom.wrapper.classList.remove(classNames.cart.wrapperActive);
+      //   }
+      //   console.log(thisCart.dom.wrapper);
       //  else{
       //   thisCart.dom.wrapper.classList.remove(classNames.cart.wrapperActive);
       //  }
         //thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
-      });
-    }
+      // });
+    
   
 
     add(menuProduct){
-      //const thisCart = this;
+      const thisCart = this;
 
       console.log('adding product', menuProduct);
     }
