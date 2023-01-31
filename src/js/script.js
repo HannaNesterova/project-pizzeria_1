@@ -121,6 +121,9 @@
       //add element to menu
       menuContainer.appendChild(thisProduct.element);
       //console.log(menuContainer);
+
+
+      
     }
     getElements(){
       const thisProduct = this;
@@ -240,7 +243,7 @@
         }
       }
       // update calculated price in the HTML
-      //price *= thisProduct.amountWidget.value;
+
       thisProduct.priseSingle= price;
       console.log(thisProduct.priseSingle);
       thisProduct.priceElem.innerHTML = price;
@@ -250,6 +253,8 @@
       const thisProduct = this;
 
       app.cart.add(thisProduct.readyCartProduct());
+
+
     }
 
     readyCartProduct (){
@@ -389,7 +394,12 @@
       thisCart.dom.wrapper = element;
       thisCart.dom.toggleTrigger = element.querySelector(select.cart.toggleTrigger);
       console.log(thisCart.dom.toggleTrigger);
-    }
+
+      thisCart.dom.productList = element.querySelector(select.cart.productList);
+
+      //thisCart.dom.productList.appendChild(thisProduct.addToCart);
+      //console.log(thisCart.dom.productList)
+     }
 
     initActions(){
       const thisCart = this;
@@ -400,14 +410,35 @@
       })
     }
     
+    renderInMenu() {
+      const thisCart = this;
+
+      // generate HTML based on template 
+      const generatedHTML = templates.cartProduct(thisCart.dom.productList); 
   
+      //cteate element using utils.createElementFromHTML
+      thisCart.element = utils.createDOMFromHTML(generatedHTML);
+    
+      
+      //find menu container
+      const cartContainer = document.querySelector(select.containerOf.cart);
+
+      //add element to menu
+      cartContainer.appendChild( thisCart.element);
+      //console.log(cartContainer);
+  }
 
     add(menuProduct){
       const thisCart = this;
 
+      thisCart.renderInMenu(this.menuProduct);
+      console.log(this.renderInMenu())
+
       console.log('adding product', menuProduct);
+      
     }
-  }
+ 
+}
   const app = {
     initData: function(){
       const thisApp = this;
