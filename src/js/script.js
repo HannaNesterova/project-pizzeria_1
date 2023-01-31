@@ -245,7 +245,7 @@
       console.log(thisProduct.priceElem.innerHTML);
     }
 
-    readyCartProduct (){
+    /*readyCartProduct (){
       const thisProduct = this;
 
       const productSummary = {
@@ -268,7 +268,7 @@
 
       app.cart.add(thisProduct);
       console.log(app.cart.add);
-    }
+    }*/
     readyCartProductParams() {
       console.log(readyCartProductParams);
       const thisProduct = this;
