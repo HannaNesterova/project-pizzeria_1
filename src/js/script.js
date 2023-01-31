@@ -410,33 +410,47 @@
       })
     }
     
-    renderInMenu() {
+    
+    initActions(){
       const thisCart = this;
 
+      thisCart.dom.toggleTrigger.addEventListener('click', function(e){
+        e.preventDefault();
+        thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
+      });
+      // thisCart.dom.productList.addEventListener('updated', function(){
+      //   thisCart.update();
+      // })
+      // thisCart.dom.productList.addEventListener('remove', function(){
+      //   thisCart.remove();
+      // })
+  };
+    
+
+
+      add(menuProduct){
+      const thisCart = this;
+
+
       // generate HTML based on template 
-      const generatedHTML = templates.cartProduct(thisCart.dom.productList); 
+      const generatedHTML = templates.cartProduct(menuProduct); 
+      console.log(generatedHTML)
   
       //cteate element using utils.createElementFromHTML
-      thisCart.element = utils.createDOMFromHTML(generatedHTML);
+      const generatedDOM = utils.createDOMFromHTML(generatedHTML);
+      console.log(generatedDOM)
     
       
       //find menu container
       const cartContainer = document.querySelector(select.containerOf.cart);
+      console.log(cartContainer)
 
       //add element to menu
-      cartContainer.appendChild( thisCart.element);
-      //console.log(cartContainer);
-  }
-
-    add(menuProduct){
-      const thisCart = this;
-
-      thisCart.renderInMenu(this.menuProduct);
-      console.log(this.renderInMenu())
-
-      console.log('adding product', menuProduct);
+  thisCart.dom.productList.appendChild(generatedDOM);
       
     }
+ 
+
  
 }
   const app = {
