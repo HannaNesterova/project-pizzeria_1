@@ -103,6 +103,9 @@
       thisProduct.initAmountWidget();
       thisProduct.processOrder();
 
+      thisProduct.readyCartProduct();
+      console.log(thisProduct.readyCartProduct);
+
     }
     renderInMenu() {
       const thisProduct = this;
@@ -179,7 +182,7 @@
       const thisProduct = this;
 
       thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElement);
-      console.log(thisProduct.AmountWidget);
+      console.log(thisProduct.amountWidget );
       thisProduct.amountWidgetElement.addEventListener('updated',function(e){
         e.preventDefault();
         thisProduct.processOrder();
@@ -238,39 +241,37 @@
         }
       }
       // update calculated price in the HTML
-      price *= thisProduct.amountWidget.value;
-      thisProduct.priseSingle = price;
+      //price *= thisProduct.amountWidget.value;
+      thisProduct.priseSingle= price;
       console.log(thisProduct.priseSingle);
       thisProduct.priceElem.innerHTML = price;
       console.log(thisProduct.priceElem.innerHTML);
-    }
-
-    /*readyCartProduct (){
-      const thisProduct = this;
-
-      const productSummary = {
-        id : thisProduct.id,
-        name : thisProduct.data.name,
-        amount :thisProduct.amountWidget.value,
-        params :  thisProduct.readyCartProductParams(),
-      };
-      console.log(productSummary);
-
-
-      const priseSingle = thisProduct.priceSingle(Product);
-      const price = price * thisProduct.amountWidget.value;
-      console.log(priseSingle);
-
-      return productSummary;
     }
     addToCart(){
       const thisProduct = this;
 
       app.cart.add(thisProduct);
-      console.log(app.cart.add);
-    }*/
+    }
+
+    readyCartProduct (){
+      const thisProduct = this;
+
+
+      const productSummary = {
+        id : thisProduct.id,
+        name : thisProduct.data.name,
+        amount :thisProduct.amountWidget.value,
+        priceSingle: thisProduct.priseSingle,
+        price: thisProduct.priseSingle  * thisProduct.amountWidget.value,
+        //params :  thisProduct.readyCartProductParams(),
+      };
+      return productSummary;
+      console.log(productSummary);
+
+    }
+  
     readyCartProductParams() {
-      console.log(readyCartProductParams);
+
       const thisProduct = this;
       //cover form to object structure {sauce:['tomato']}, toppings: ets...
       const formData = utils.serializeFormToObject(thisProduct.form);
@@ -299,7 +300,7 @@
       
           if(optionSelected) {
             // option is selected!
-            params[paramId] += optionSelected;
+
           }
         }
       }
@@ -308,7 +309,7 @@
   
   }
 
-  //thisProduct({params:[]})
+
   
   class AmountWidget {
     constructor(element){
@@ -352,6 +353,11 @@
       thisWidget.input.value = thisWidget.value;
       thisWidget.announce();
     }
+    announce(){
+      const thisWidget = this;
+      const event =  new Event('updated');
+      thisWidget.element.dispatchEvent(event);
+    }
 
     initActions(){
       const thisWidget = this;
@@ -366,12 +372,7 @@
         thisWidget.setValue(thisWidget.value +1);
       });
     }
-    announce(){
-      const thisWidget = this;
 
-      const event = new Event('updated');
-      thisWidget.element.dispatchEvent(event);
-    }
   }
   class Cart{
     constructor(element){
