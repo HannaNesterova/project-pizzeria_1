@@ -328,6 +328,7 @@
     
       thisWidget.element = element;
       thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
+      console.log(thisWidget.input);
       thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
       thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
       thisWidget.setValue(thisWidget.input.value);
@@ -443,7 +444,7 @@
       const thisCartProduct = this;
 
       thisCartProduct.getElements(element);
-      thisCartProduct. InitAmountWidget();
+      thisCartProduct. initAmountWidget();
 
 
       thisCartProduct.id = menuProduct.id;
@@ -467,19 +468,23 @@
         thisCartProduct.edit = thisCartProduct.dom.wrapper.querySelector(select.cart.edit);
         thisCartProduct.remove = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.remove);
       }
-      InitAmountWidget( ){
-          const thisCartProduct = this;
+          initAmountWidget(){
+             const thisCartProduct = this;
     
-          thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.amountWidgetElement);
-          console.log(thisCartProduct.amountWidget );
-          thisCartProduct.amountWidgetElement.addEventListener('updated',function(e){
-            e.preventDefault();
-            thisCartProduct.processOrder();
-          });
-       
-        }
+         
+             thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.amountWidgetElement);
+             console.log(thisCartProduct.amountWidget );
+             thisCartProduct.dom.amountWidget.addEventListener('updated',function(e){
+               e.preventDefault();
+
+               thisCartProduct.amount = thisCartProduct.amountWidget.value;
+               console.log(thisCartProduct.amount);
+               thisCartProduct.price = thisCartProduct.amount * thisCartProduct.priceSingle;
+              thisCartProduct.dom.price.innerHTML = thisCartProduct.price
+
+             });
       }
-  }
+    }
 
 
   const app = {
