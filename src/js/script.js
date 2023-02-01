@@ -433,39 +433,43 @@
       thisCart.dom.productList.appendChild(generatedDOM);
       console.log('type', menuProduct);
 
-      thisCart.products.push(menuProduct, generatedDOM);
-      console.log('thisCart.products', thisCart.products);
+      thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
+
     }
   }
-  new CartProduct  {
-    constructor(menuProduct, generatedDOM){
+     class CartProduct {
+    constructor(menuProduct, element){
       const thisCartProduct = this;
 
       thisCartProduct.getElements(element);
+
+
 
       thisCartProduct.id = menuProduct.id;
       thisCartProduct.amount = menuProduct.amount;
       thisCartProduct.name = menuProduct.name;
       thisCartProduct.price = menuProduct.price;
-      thisCartProduct.label = menuProduct.label;
-      thisCartProduct.options = menuProduct.options;
+      thisCartProduct.params = menuProduct.params;
+      thisCartProduct.priceSingle = menuProduct.priceSingle;
 
 
-      console.log(thisCartProduct);
+      console.log('CartTest',thisCartProduct);
     }
     getElements(element){
       const thisCartProduct = this;
       thisCartProduct.dom = {};
 
         thisCartProduct.dom.wrapper = element;
-        thisCartProduct.amountWidget = element.querySelector(select.cartProduct.amountWidget);
-        thisCartProduct.price = element.querySelector(select.cartProduct.price);
-        thisCartProduct.edit = element.edit.querySelector(select.cart.edit);
-        thisCartProduct.remove = element.querySelector(select.cartProduct.remove);
-      
-        console.log('CartProduct', getElements(element));
+        console.log(element)
+        thisCartProduct.amountWidget = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.amountWidget);
+        thisCartProduct.price = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.price);
+        thisCartProduct.edit = thisCartProduct.dom.wrapper.querySelector(select.cart.edit);
+        thisCartProduct.remove = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.remove);
+
       }
   }
+
+
   const app = {
     initData: function(){
       const thisApp = this;
