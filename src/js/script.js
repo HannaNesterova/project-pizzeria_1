@@ -487,7 +487,7 @@
              const thisCartProduct = this;
     
          
-             thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.amountWidgetElement);
+             thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.amountWidget);
              console.log(thisCartProduct.amountWidget );
              thisCartProduct.dom.amountWidget.addEventListener('updated',function(e){
                e.preventDefault();
