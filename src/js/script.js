@@ -316,6 +316,7 @@
       const thisWidget = this;
     
       thisWidget.element = element;
+      console.log(thisWidget.element);
       thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
       console.log(thisWidget.input);
       thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
@@ -478,7 +479,9 @@
       thisCartProduct.dom = {};
 
         thisCartProduct.dom.wrapper = element;
+        console.log(thisCartProduct.dom.wrapper);
         thisCartProduct.amountWidget = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.amountWidget);
+        console.log(thisCartProduct.amountWidget);
         thisCartProduct.price = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.price);
         thisCartProduct.edit = thisCartProduct.dom.wrapper.querySelector(select.cart.edit);
         thisCartProduct.remove = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.remove);
@@ -487,10 +490,9 @@
              const thisCartProduct = this;
     
          
-             thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.amountWidget);
+             thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidget);
              console.log(thisCartProduct.amountWidget );
-             thisCartProduct.dom.amountWidget.addEventListener('updated',function(e){
-               e.preventDefault();
+             thisCartProduct.dom.amountWidget.addEventListener('updated',function(){
 
                thisCartProduct.amount = thisCartProduct.amountWidget.value;
                console.log(thisCartProduct.amount);
