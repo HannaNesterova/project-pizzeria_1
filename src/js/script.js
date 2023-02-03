@@ -187,7 +187,6 @@
         for (let optionId in param.options) {
           // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
           const option = param.options[optionId];
-          console.log(optionId, option);
           // select an element with the appropriate class
           const optionImage = thisProduct.imageWrapper.querySelector(`.${paramId}-${optionId}`);
           // check if there is param with a name of paramId in formData and if it includes optionId
@@ -287,7 +286,7 @@
       const thisWidget = this;
       //const event = new Event('updated');
       const event = new CustomEvent('updated', {
-        bubbles: true
+        bubbles: true,
       });
       thisWidget.element.dispatchEvent(event);
     }
@@ -409,6 +408,7 @@
 
       thisCartProduct.getElements(element);
       thisCartProduct.initAmountWidget();
+      thisCartProduct.  initActions();
     }
 
     getElements(element) {
@@ -442,7 +442,31 @@
       });
 
     }
+    remove(){
+      const thisCartProduct = this;
+      console.log(thisCartProduct);
+
+      const event = new CustomEvent('remove' ,{
+        bubbles: true,
+        detail: {
+          cartProduct: thisCartProduct,
+        },
+      });
+      thisCartProduct.dom.wrapper.dispatchEvent(event);
+    }
+    initActions(){
+      const thisCartProduct = this;
+
+      thisCartProduct.dom.edit.addEventListener('click', function(e){
+        e.preventDefault()
+      });
+      thisCartProduct.dom.remove.addEventListener('click', function(e){
+        e.preventDefault(e)
+        console.log(thisCartProduct.dom.remove)
+      });
+    }
   }
+
 
   
   const app = {
