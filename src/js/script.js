@@ -320,6 +320,7 @@
       thisCart.products =[];
       thisCart.getElements(element);
       thisCart.initActions();
+      thisCart.remove();
 
 
     }
@@ -396,6 +397,30 @@
       thisCart.dom.totalPrice.innerHTML = thisCart.totalPrice;
       thisCart.dom.totalPriceTitle.innerHTML = thisCart.totalPrice;
     }
+    remove(){
+     const thisCart = this;
+     console.log(thisCart);
+
+     thisCart.dom.productList =[];
+
+    //   //find index of product
+      const indexOfCartProducts =  thisCart.dom.productList.indexOf(CartProduct);
+      console.log(indexOfCartProducts);
+
+      //delete index from match
+     if(indexOfCartProducts !== -1){
+       indexOfCartProducts.splice(indexOfCartProducts, 1);
+     }
+
+      //delete product from HTML
+      thisCart.products.remove();
+
+      //delete info about product from thisCart.products
+
+
+      //call update method for counting prise after updating 
+    }
+
   }
 
 
