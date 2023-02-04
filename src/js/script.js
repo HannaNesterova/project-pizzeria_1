@@ -71,8 +71,6 @@
   const settings = {
     amountWidget: {
       defaultValue: 1,
-      defaultMin: 1,
-      defaultMax: 9,
       defaultMin: 0,
       defaultMax: 10,
     }, // CODE CHANGED
@@ -157,14 +155,14 @@
       });
       for (let input of thisProduct.formInputs) {
         input.addEventListener('change', function () {
-          thisProduct.processOrder();
+          thisProduct.processOrder(); // що це за команда, вона закодована в JS???
           
         });
       }
       thisProduct.cartButton.addEventListener('click', function (event) {
         event.preventDefault();
         thisProduct.processOrder();
-        thisProduct.addToCart();
+        thisProduct.addToCart(); // так само і ця ???
       });
     }
     initAmountWidget() {
@@ -348,11 +346,13 @@
       });
 
       thisCart.dom.productList.addEventListener('updated', function(){
+    
         thisCart.update();
       })
 
-      thisCart.dom.productList.addEventListener('remove', function(){
-        thisCart.remove();
+      thisCart.dom.productList.addEventListener('remove', function(e){
+        e.preventDefault();
+        thisCart.remove(event.detail.cartProduct);
       })
     }
 
@@ -366,7 +366,7 @@
 
       /* add element to menu*/
       thisCart.dom.productList.appendChild(generatedDOM);
-      thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
+      thisCart.products.push(new CartProduct(menuProduct, generatedDOM)); // це означає що ми додаємо щось в CartProduct через команду new?
       thisCart.update();
     }
 
@@ -397,32 +397,24 @@
       thisCart.dom.totalPrice.innerHTML = thisCart.totalPrice;
       thisCart.dom.totalPriceTitle.innerHTML = thisCart.totalPrice;
     }
-    remove(){
-     const thisCart = this;
-     console.log(thisCart);
 
-     thisCart.dom.productList =[];
+    remove(CartProduct){
+    const thisCart = this;
+    console.log('remove', CartProduct)
+    console.log(thisCart);
+    console.log(thisCart.products);
 
-    //   //find index of product
-      const indexOfCartProducts =  thisCart.dom.productList.indexOf(CartProduct);
-      console.log(indexOfCartProducts);
-
-      //delete index from match
-     if(indexOfCartProducts !== -1){
-       indexOfCartProducts.splice(indexOfCartProducts, 1);
-     }
-
-      //delete product from HTML
-      thisCart.products.remove();
-
-      //delete info about product from thisCart.products
-
-
-      //call update method for counting prise after updating 
+    for (let product of  thisCart.products){
+           //find index of product
+      if(product === CartProduct){
+        const element = thisCart.products.indexOf(product);
+        thisCart.products.slice(element, 1);
+        CartProduct.dom.wrapper.remove(element);
+      }
     }
-
+    thisCart.update();
+    }
   }
-
 
   class CartProduct {
     constructor(menuProduct, element) {
@@ -469,8 +461,8 @@
         thisCartProduct.price = thisCartProduct.amount * thisCartProduct.priceSingle;
         thisCartProduct.dom.price.innerHTML = thisCartProduct.price;
       });
-
     }
+
     remove(){
       const thisCartProduct = this;
       console.log(thisCartProduct);
