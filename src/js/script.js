@@ -416,6 +416,21 @@
       //update the cart
       thisCart.update();
     }
+    sendOrde(){
+      thisCart = this;
+
+      const url = settings.db.url + '/' + settings.db.orders;
+
+     const payload = {
+        address: "adres klienta wpisany w koszyku",
+        phone: "numer telefonu wpisany w koszyku",
+        totalPrice: "całkowita cena za zamówienie",
+        subtotalPrice: "cena całkowita - koszt dostaw",
+        totalNumber: "całkowita liczba sztuk",
+        deliveryFee: "koszt dostawy",
+        products: "tablica obecnych w koszyku produktów"
+      }
+    }
   }
 
   class CartProduct {
