@@ -353,6 +353,12 @@
         e.preventDefault();
         thisCart.remove(event.detail.cartProduct);
       });
+
+      thisCart.dom.form.addEventListener('submite', function(e){
+        e.preventDefault();
+        callback(thisCart.sendOrder);
+      })
+      console.log( thisCart.dom.form.addEventListener);
     }
 
     add(menuProduct) {
