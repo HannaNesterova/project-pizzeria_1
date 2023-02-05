@@ -424,12 +424,12 @@
       const url = settings.db.url + '/' + settings.db.orders;
 
      const payload = {
-        address: "adres klienta wpisany w koszyku",
-        phone: "numer telefonu wpisany w koszyku",
-        totalPrice: "całkowita cena za zamówienie",
-        subtotalPrice: "cena całkowita - koszt dostaw",
-        totalNumber: "całkowita liczba sztuk",
-        deliveryFee: "koszt dostawy",
+        address: thisCart.dom.address.value,
+        phone: thisCart.dom.phone.value,
+        totalPrice: thisCart.dom.totalPrice.value,
+        subtotalPrice: thisCart.dom.subtotalPrice.value,
+        totalNumber: thisCart.dom.totalNumber.value,
+        deliveryFee:thisCart.dom.deliveryFee.value,
         products: "tablica obecnych w koszyku produktów"
       }
       console.log('payload', payload);
