@@ -331,6 +331,9 @@
       thisCart.dom.totalPrice = document.querySelector(select.cart.totalPrice);
       thisCart.dom.totalPriceTitle = document.querySelector(select.cart.totalPriceTitle);
       thisCart.dom.totalNumber = document.querySelector( select.cart.totalNumber);
+
+      thisCart.dom.form = document.querySelector(select.cart.form);
+      console.log(thisCart.dom.form);
     }
 
     initActions() {
