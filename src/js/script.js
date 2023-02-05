@@ -334,6 +334,8 @@
 
       thisCart.dom.form = document.querySelector(select.cart.form);
       console.log(thisCart.dom.form);
+      thisCart.dom.phone = document.querySelector(select.cart.phone);
+      thisCart.dom.address = document.querySelector(select.cart.address);
     }
 
     initActions() {
@@ -430,6 +432,7 @@
         deliveryFee: "koszt dostawy",
         products: "tablica obecnych w koszyku produktów"
       }
+      console.log('payload', payload);
     }
   }
 
