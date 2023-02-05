@@ -339,12 +339,12 @@
       thisCart.dom.productList.addEventListener('updated', function(){
     
         thisCart.update();
-      })
+      });
 
       thisCart.dom.productList.addEventListener('remove', function(e){
         e.preventDefault();
         thisCart.remove(event.detail.cartProduct);
-      })
+      });
     }
 
     add(menuProduct) {
@@ -389,20 +389,20 @@
     }
 
     remove(cartProduct){
-    const thisCart = this;
+      const thisCart = this;
 
-  //call to a cart , and splice a choosen product
-  thisCart.products.splice(
-    //find an index of product
-    thisCart.products.indexOf(cartProduct),
-    1
-  );
-  //delete from DOM 
-  cartProduct.dom.wrapper.remove();
-  //update the cart
-  thisCart.update();
+      //call to a cart , and splice a choosen product
+      thisCart.products.splice(
+        //find an index of product
+        thisCart.products.indexOf(cartProduct),
+        1
+      );
+      //delete from DOM 
+      cartProduct.dom.wrapper.remove();
+      //update the cart
+      thisCart.update();
+    }
   }
-}
 
   class CartProduct {
     constructor(menuProduct, element, productList) {
@@ -464,11 +464,11 @@
       const thisCartProduct = this;
 
       thisCartProduct.dom.edit.addEventListener('click', function(e){
-        e.preventDefault()
+        e.preventDefault();
       });
       thisCartProduct.dom.remove.addEventListener('click', function(e){
-        e.preventDefault(e)
-        console.log(thisCartProduct.dom.remove)
+        e.preventDefault(e);
+        console.log(thisCartProduct.dom.remove);
         thisCartProduct.remove();
       });
     }
