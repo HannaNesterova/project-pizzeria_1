@@ -383,8 +383,8 @@
       let totalNumber = 0; //для загальної кількості товарів
       let subtotalPrice = 0; //загальна ціна за все
 
-      totalNumber = thisCart.totalNumber;
-      subtotalPrice = thisCart.subtotalPrice;
+      //totalNumber = thisCart.totalNumber;
+      //subtotalPrice = thisCart.subtotalPrice;
 
       for (let product of thisCart.products) {
         //додайте for...of,який буде проходити через thisCart.products.
@@ -431,8 +431,8 @@
         address: (thisCart.dom.address).value,//чому беремо в дужки?
         phone: (thisCart.dom.phone).value,
         totalPrice: thisCart.totalPrice, // не розумію де ми його діставали 
-        subtotalPrice: thisCart.subtotalPrice,
-        totalNumber: thisCart.totalNumber,
+        //subtotalPrice: thisCart.subtotalPrice,
+        //totalNumber: thisCart.totalNumber,
         deliveryFee:settings.cart.defaultDeliveryFee,
         products: []
       }
@@ -528,14 +528,17 @@
     getData(){
       const thisCartProduct = this;
 
-      // thisCartProduct.id = menuProduct.id;
-      // thisCartProduct.amount = menuProduct.amount;
-      // thisCartProduct.price = menuProduct.price;
-      // thisCartProduct.priceSingle = menuProduct.priceSingle;
-      // thisCartProduct.name = menuProduct.name;
-      // thisCartProduct.params = menuProduct.params;
+      const readyProductForServer = {
+        id: thisCartProduct.id,
+        amount : thisCartProduct.amount,
+        price : thisCartProduct.price,
+        params : thisCartProduct.params,
+        name : thisCartProduct.name,
+        priceSingle : thisCartProduct.priceSingle,
+      }
+      return readyProductForServer;
 
-      getData.call(thisCartProduct[id, amount, price, priceSingle, name, params ]);
+      //getData.call(thisCartProduct[id, amount, price, priceSingle, name, params ]);
     }
   }
 
