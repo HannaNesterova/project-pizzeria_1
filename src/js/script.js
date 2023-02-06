@@ -394,7 +394,7 @@
         thisCart.subtotalPrice += product.price; //збільшиться subtotalPrice на його загальну ціну ( price)
       }
       if (thisCart.totalNumber != 0) {
-        thisCart.totalPrice = thisCart.subtotalPrice * thisCart.totalNumber + deliveryFee;
+        thisCart.totalPrice = thisCart.subtotalPrice  + deliveryFee;
       } if( thisCart.subtotalPrice === 0){
          thisCart.totalPrice ;   ///чому не прирівнюється до нуля?
       }
