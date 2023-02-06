@@ -383,6 +383,9 @@
       let totalNumber = 0; //для загальної кількості товарів
       let subtotalPrice = 0; //загальна ціна за все
 
+      totalNumber = thisCart.totalNumber;
+      subtotalPrice = thisCart.subtotalPrice;
+
       for (let product of thisCart.products) {
         //додайте for...of,який буде проходити через thisCart.products.
         totalNumber += product.amount; //це збільшує totalNumber на кількість elementів даного продукту
@@ -425,13 +428,13 @@
 
      const payload = {
       
-        address: thisCart.dom.address.value,
-        phone: thisCart.dom.phone.value,
-        totalPrice: thisCart.dom.totalPrice.value,
-        subtotalPrice: thisCart.dom.subtotalPrice.value,
-        totalNumber: thisCart.dom.totalNumber.value,
-        deliveryFee:thisCart.dom.deliveryFee.value,
-        products: "tablica obecnych w koszyku produktów"
+        address: (thisCart.dom.address).value,//чому беремо в дужки?
+        phone: (thisCart.dom.phone).value,
+        totalPrice: thisCart.totalPrice, // не розумію де ми його діставали 
+        subtotalPrice: thisCart.subtotalPrice,
+        totalNumber: thisCart.totalNumber,
+        deliveryFee:settings.cart.defaultDeliveryFee,
+        products: []
       }
       console.log('payload', payload);
       for(let prod of thisCart.products) {
@@ -525,12 +528,14 @@
     getData(){
       const thisCartProduct = this;
 
-      thisCartProduct.id = menuProduct.id;
-      thisCartProduct.amount = menuProduct.amount;
-      thisCartProduct.price = menuProduct.price;
-      thisCartProduct.priceSingle = menuProduct.priceSingle;
-      thisCartProduct.name = menuProduct.name;
-      thisCartProduct.params = menuProduct.params;
+      // thisCartProduct.id = menuProduct.id;
+      // thisCartProduct.amount = menuProduct.amount;
+      // thisCartProduct.price = menuProduct.price;
+      // thisCartProduct.priceSingle = menuProduct.priceSingle;
+      // thisCartProduct.name = menuProduct.name;
+      // thisCartProduct.params = menuProduct.params;
+
+      getData.call(thisCartProduct[id, amount, price, priceSingle, name, params ]);
     }
   }
 
