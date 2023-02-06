@@ -383,6 +383,7 @@
       const deliveryFee = settings.cart.defaultDeliveryFee;
       thisCart.totalNumber = 0; //для загальної кількості товарів
       thisCart.subtotalPrice = 0; //загальна ціна за все
+      thisCart.totalPrice =0; 
 
       // totalNumber = thisCart.totalNumber;
       // subtotalPrice = thisCart.subtotalPrice;
@@ -394,15 +395,15 @@
       }
       if (thisCart.totalNumber != 0) {
         thisCart.totalPrice = thisCart.subtotalPrice * thisCart.totalNumber + deliveryFee;
-      } if( thisCart.totalNumber === 0){
-        thisCart.dom.deliveryFee.innerHTML = 0; ///чому не прирівнюється до нуля?
+      } if( thisCart.subtotalPrice === 0){
+         thisCart.totalPrice ;   ///чому не прирівнюється до нуля?
       }
 
       thisCart.dom.deliveryFee.innerHTML = deliveryFee;
       thisCart.dom.totalNumber.innerHTML = thisCart.totalNumber;
       thisCart.dom.subtotalPrice.innerHTML = thisCart.subtotalPrice;
-      thisCart.dom.totalPriceTitle.innerHTML = thisCart.subtotalPrice + deliveryFee;
-      thisCart.dom.totalPrice.innerHTML = thisCart.subtotalPrice + deliveryFee;
+      thisCart.dom.totalPriceTitle.innerHTML = thisCart.totalPrice;
+      thisCart.dom.totalPrice.innerHTML = thisCart.totalPrice;
       console.log('totalPrice', thisCart.dom.totalPriceTitle.innerHTML);
       console.log('subTotalPrice', thisCart.dom.subtotalPrice.innerHTML);
       console.log('delivery', thisCart.dom.deliveryFee.innerHTML);
@@ -522,8 +523,8 @@
       });
       thisCartProduct.dom.remove.addEventListener('click', function(e){
         e.preventDefault(e);
+        thisCartProduct.remove(event.detail.cartProduct);
         console.log(thisCartProduct.dom.remove);
-        thisCartProduct.remove();
       });
     }
     getData(){
