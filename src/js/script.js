@@ -334,7 +334,7 @@
       thisCart.dom.totalNumber = document.querySelector( select.cart.totalNumber);
 
       thisCart.dom.form = document.querySelector(select.cart.form);
-      console.log(thisCart.dom.form);
+      thisCart.dom.formSubmite = document.querySelector(select.cart.formSubmit);
       thisCart.dom.phone = document.querySelector(select.cart.phone);
       thisCart.dom.address = document.querySelector(select.cart.address);
     }
@@ -471,6 +471,8 @@
       thisCartProduct.amount = menuProduct.amount;
       thisCartProduct.priceSingle = menuProduct.priceSingle;
       thisCartProduct.price = menuProduct.price;
+      thisCartProduct.params = menuProduct.params;
+
       thisCartProduct.remove = this.remove; // посилається на функцію remove  from class CartProduct
       thisCartProduct.edit = menuProduct.edit;
       thisCartProduct.getElements(element);
@@ -591,3 +593,4 @@
   
   app.init();
 }
+
