@@ -357,9 +357,9 @@
         thisCart.remove(event.detail.cartProduct);
       });
 
-      thisCart.dom.form.addEventListener('submite', function(e){
+      thisCart.dom.form.addEventListener('submit', function(e){
         e.preventDefault();
-        callback(thisCart.sendOrder);
+       thisCart.sendOrder();
       })
       console.log( thisCart.dom.form.addEventListener);
     }
@@ -594,3 +594,10 @@
   app.init();
 }
 
+function forEach(arr, cb){
+for (const elem of arr){
+  cb(elem);
+}
+}
+
+forEach(['John', 'Amanda', 'Thomas'], function(item) { console.log(item); });
