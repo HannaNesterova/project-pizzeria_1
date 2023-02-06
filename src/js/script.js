@@ -316,6 +316,7 @@
       thisCart.products =[];
       thisCart.getElements(element);
       thisCart.initActions();
+      thisCart.sendOrder();
     }
 
     // що таке element?
@@ -380,28 +381,28 @@
     update() {
       const thisCart = this;
       const deliveryFee = settings.cart.defaultDeliveryFee;
-      let totalNumber = 0; //для загальної кількості товарів
-      let subtotalPrice = 0; //загальна ціна за все
+      thisCart.totalNumber = 0; //для загальної кількості товарів
+      thisCart.subtotalPrice = 0; //загальна ціна за все
 
-      //totalNumber = thisCart.totalNumber;
-      //subtotalPrice = thisCart.subtotalPrice;
+      // totalNumber = thisCart.totalNumber;
+      // subtotalPrice = thisCart.subtotalPrice;
 
       for (let product of thisCart.products) {
         //додайте for...of,який буде проходити через thisCart.products.
-        totalNumber += product.amount; //це збільшує totalNumber на кількість elementів даного продукту
-        subtotalPrice += product.price; //збільшиться subtotalPrice на його загальну ціну ( price)
+        thisCart.totalNumber += product.amount; //це збільшує totalNumber на кількість elementів даного продукту
+        thisCart.subtotalPrice += product.price; //збільшиться subtotalPrice на його загальну ціну ( price)
       }
-      if (totalNumber != 0) {
-        thisCart.totalPrice = subtotalPrice * totalNumber + deliveryFee;
-      } if( totalNumber === 0){
+      if (thisCart.totalNumber != 0) {
+        thisCart.totalPrice = thisCart.subtotalPrice * thisCart.totalNumber + deliveryFee;
+      } if( thisCart.totalNumber === 0){
         thisCart.dom.deliveryFee.innerHTML = 0; ///чому не прирівнюється до нуля?
       }
 
       thisCart.dom.deliveryFee.innerHTML = deliveryFee;
-      thisCart.dom.totalNumber.innerHTML = totalNumber;
-      thisCart.dom.subtotalPrice.innerHTML = subtotalPrice;
-      thisCart.dom.totalPriceTitle.innerHTML = subtotalPrice + deliveryFee;
-      thisCart.dom.totalPrice.innerHTML = subtotalPrice + deliveryFee;
+      thisCart.dom.totalNumber.innerHTML = thisCart.totalNumber;
+      thisCart.dom.subtotalPrice.innerHTML = thisCart.subtotalPrice;
+      thisCart.dom.totalPriceTitle.innerHTML = thisCart.subtotalPrice + deliveryFee;
+      thisCart.dom.totalPrice.innerHTML = thisCart.subtotalPrice + deliveryFee;
       console.log('totalPrice', thisCart.dom.totalPriceTitle.innerHTML);
       console.log('subTotalPrice', thisCart.dom.subtotalPrice.innerHTML);
       console.log('delivery', thisCart.dom.deliveryFee.innerHTML);
@@ -421,8 +422,8 @@
       //update the cart
       thisCart.update();
     }
-    sendOrde(){
-      thisCart = this;
+    sendOrder(){
+      const thisCart = this;
 
       const url = settings.db.url + '/' + settings.db.orders;
 
@@ -431,8 +432,8 @@
         address: (thisCart.dom.address).value,//чому беремо в дужки?
         phone: (thisCart.dom.phone).value,
         totalPrice: thisCart.totalPrice, // не розумію де ми його діставали 
-        //subtotalPrice: thisCart.subtotalPrice,
-        //totalNumber: thisCart.totalNumber,
+        subtotalPrice: thisCart.subtotalPrice,
+        totalNumber: thisCart.totalNumber,
         deliveryFee:settings.cart.defaultDeliveryFee,
         products: []
       }
@@ -450,9 +451,9 @@
       
       fetch(url, options)
         .then(function(response){
-          return response.json();
-        }).then(function(parsedResponse){
-          console.log('parsedResponse', parsedResponse);
+          return response.json(); // шо це за  response
+        }).then(function(parsedResponse){ // шо це за  parsedResponse
+          console.log('parsedResponse', parsedResponse); 
         });
     }
   }
@@ -536,7 +537,7 @@
         name : thisCartProduct.name,
         priceSingle : thisCartProduct.priceSingle,
       }
-      return readyProductForServer;
+      return readyProductForServer; //чому ми пишемо тут реторн а в sendOrde не писали?
 
       //getData.call(thisCartProduct[id, amount, price, priceSingle, name, params ]);
     }
