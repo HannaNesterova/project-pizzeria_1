@@ -385,9 +385,6 @@
       thisCart.subtotalPrice = 0; //загальна ціна за все
       thisCart.totalPrice =0; 
 
-      // totalNumber = thisCart.totalNumber;
-      // subtotalPrice = thisCart.subtotalPrice;
-
       for (let product of thisCart.products) {
         //додайте for...of,який буде проходити через thisCart.products.
         thisCart.totalNumber += product.amount; //це збільшує totalNumber на кількість elementів даного продукту
@@ -594,10 +591,4 @@
   app.init();
 }
 
-function forEach(arr, cb){
-for (const elem of arr){
-  cb(elem);
-}
-}
 
-forEach(['John', 'Amanda', 'Thomas'], function(item) { console.log(item); });
