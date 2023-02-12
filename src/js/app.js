@@ -1,16 +1,4 @@
-/* global Handlebars, utils, dataSource */ // eslint-disable-line no-unused-vars
-{
-  'use strict';
-
- 
-
-
-
-
-
-
-  
-  const app = {
+const app = {
     initMenu: function () {
       const thisApp = this;
 
@@ -54,6 +42,6 @@
   };
   
   app.init();
-}
+
 
 
