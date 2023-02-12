@@ -359,8 +359,8 @@
 
       thisCart.dom.form.addEventListener('submit', function(e){
         e.preventDefault();
-       thisCart.sendOrder();
-      })
+        thisCart.sendOrder();
+      });
       console.log( thisCart.dom.form.addEventListener);
     }
 
@@ -393,7 +393,7 @@
       if (thisCart.totalNumber != 0) {
         thisCart.totalPrice = thisCart.subtotalPrice  + deliveryFee;
       } if( thisCart.subtotalPrice === 0){
-         thisCart.totalPrice ;   ///чому не прирівнюється до нуля?
+        thisCart.totalPrice ;   ///чому не прирівнюється до нуля?
       }
 
       thisCart.dom.deliveryFee.innerHTML = deliveryFee;
@@ -425,7 +425,7 @@
 
       const url = settings.db.url + '/' + settings.db.orders;
 
-     const payload = {
+      const payload = {
       
         address: (thisCart.dom.address).value,//чому беремо в дужки?
         phone: (thisCart.dom.phone).value,
@@ -434,7 +434,7 @@
         totalNumber: thisCart.totalNumber,
         deliveryFee:settings.cart.defaultDeliveryFee,
         products: []
-      }
+      };
       console.log('payload', payload);
       for(let prod of thisCart.products) {
         payload.products.push(prod.getData());
@@ -536,10 +536,8 @@
         params : thisCartProduct.params,
         name : thisCartProduct.name,
         priceSingle : thisCartProduct.priceSingle,
-      }
+      };
       return readyProductForServer; //чому ми пишемо тут реторн а в sendOrde не писали?
-
-      //getData.call(thisCartProduct[id, amount, price, priceSingle, name, params ]);
     }
   }
 
