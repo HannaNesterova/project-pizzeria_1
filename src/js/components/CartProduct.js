@@ -1,3 +1,6 @@
+import { settings, select } from './setting.js';
+import AmountWidget from './amountWidget.js';
+
 class CartProduct {
   constructor(menuProduct, element, productList) {
   //add thirt argument productList, but why?
@@ -82,3 +85,4 @@ class CartProduct {
     return readyProductForServer; //чому ми пишемо тут реторн а в sendOrde не писали?
   }
 }
+export default CartProduct;

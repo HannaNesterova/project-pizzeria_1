@@ -1,3 +1,7 @@
+import { settings, select, templates, classNames } from './setting.js';
+import CartProduct from './cartProduct.js';
+import utils from '../utils.js';
+
 class Cart {
   constructor(element) {
     const thisCart = this;
@@ -141,5 +145,7 @@ class Cart {
       }).then(function(parsedResponse){ // шо це за  parsedResponse
         console.log('parsedResponse', parsedResponse); 
       });
-    }
+  }
 }
+
+export default Cart;

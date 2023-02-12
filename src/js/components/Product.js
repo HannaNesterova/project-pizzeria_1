@@ -1,3 +1,8 @@
+import { settings, select, templates, classNames } from './setting.js';
+import AmountWidget from './amountWidget.js';
+import utils from '../utils.js';
+
+
 class Product {
   constructor(id, data) {
     const thisProduct = this;
@@ -73,7 +78,7 @@ class Product {
     const thisProduct = this;
     thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
     thisProduct.amountWidgetElem.addEventListener('updated', function () {
-    thisProduct.processOrder();
+      thisProduct.processOrder();
     });
   }
   processOrder() {
@@ -125,7 +130,15 @@ class Product {
   }
   addToCart() {
     const thisProduct = this;
-    app.cart.add(thisProduct.readyCartProduct()); 
+    //app.cart.add(thisProduct.readyCartProduct()); 
+
+    const event = new CustomEvent('add-to-cart', {
+      bubbles: true,
+      detail: {
+        product: thisProduct,
+      },
+    });
+    thisProduct.element.dispatchEvent(event);
   }
   readyCartProduct() {
     const thisProduct = this;
@@ -167,3 +180,5 @@ class Product {
     return params;
   }
 }
+
+export default Product;
