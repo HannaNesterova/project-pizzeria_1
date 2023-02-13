@@ -75,7 +75,7 @@ class Cart {
     const deliveryFee = settings.cart.defaultDeliveryFee;
     thisCart.totalNumber = 0; //для загальної кількості товарів
     thisCart.subtotalPrice = 0; //загальна ціна за все
-    thisCart.totalPrice =0; 
+    thisCart.totalPrice = 0; 
 
     for (let product of thisCart.products) {
       //додайте for...of,який буде проходити через thisCart.products.
