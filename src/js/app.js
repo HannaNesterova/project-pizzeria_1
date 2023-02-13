@@ -1,6 +1,8 @@
 import { settings, select, classNames } from './setting.js';
 import Product  from './components/Product.js';
 import Cart from './components/Cart.js';
+import Booking from './components/Booking.js';
+
 
 
 const app = {
@@ -99,7 +101,16 @@ for(let link of thisApp.navLinks){
     thisApp.initData();
     //thisApp.initMenu();
     thisApp.initCart();
+    thisApp.initBooking();
   },
+
+  initBooking: function(){
+    const thisApp = this;
+
+    const containerWidget = document.querySelector(select.containerOf.booking);
+    console.log(containerWidget, 'container');
+
+  }
 };
   
 app.init();
