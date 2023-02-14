@@ -50,25 +50,25 @@ export const select = {
     edit: '[href="#edit"]',
     remove: '[href="#remove"]',
   },
-  widgets: {
+  widgetDate: {
     datePicker: {
-        wrapper: '.date-picker',
-        input: `input[name="date"]`,
+      wrapper: '.date-picker',
+      input: `input[name="date"]`,
     },
     hourPicker: {
-        wrapper: '.hour-picker',
-        input: 'input[type="range"]',
-        output: '.output',
+      wrapper: '.hour-picker',
+      input: 'input[type="range"]',
+      output: '.output',
     },
-},
-booking: {
+  },
+  booking: {
     peopleAmount: '.people-amount',
     hoursAmount: '.hours-amount',
     tables: '.floor-plan .table',
-},
-nav: {
+  },
+  nav: {
     links: '.main-nav a',
-},
+  },
 };
 
 export const classNames = {
@@ -82,13 +82,13 @@ export const classNames = {
   booking: {
     loading: 'loading',
     tableBooked: 'booked',
-},
-nav: {
+  },
+  nav: {
     active: 'active',
-},
-pages: {
+  },
+  pages: {
     active: 'active',
-}
+  }
 };
 export const settings = {
   amountWidget: {
@@ -113,13 +113,13 @@ export const settings = {
   hours: {
     open: 12,
     close: 24,
-},
-datePicker: {
+  },
+  datePicker: {
     maxDaysInFuture: 14,
-},
-booking: {
+  },
+  booking: {
     tableIdAttribute: 'data-table',
-},
+  },
 };
 export const templates = {
   menuProduct: Handlebars.compile(document.querySelector(select.templateOf.menuProduct).innerHTML),
