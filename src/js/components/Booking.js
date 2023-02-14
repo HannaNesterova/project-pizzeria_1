@@ -1,12 +1,18 @@
 
 class Booking {
+
     constructor(element) {
-      thisBooking = this;
+      const thisBooking = this;
+      thisBooking.render(element);
+    }
 
-      thisBooking.bookingContainer = element.querySelector(select.containerOf.booking)
-      window.render(thisBooking.bookingContainer);
-      initWidgets ();
-
+      render (element) {
+        const thisBooking = this;
+        const generatedHTML = templates.bookingWidget();
+        thisBooking.dom = {};
+        thisBooking.dom.wrapper = element;
+        thisBooking.dom.wrapper.innerHTML = generatedHTML;
+        thisBooking.initWidgets ();
     }
 }
 
