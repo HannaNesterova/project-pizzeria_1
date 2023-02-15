@@ -9,8 +9,6 @@ class AmountWidget extends BaseWidget{
     //added
     //thisWidget.value = setting.amountWidget.defaultValue;
     //thisWidget.setValue(thisWidget.input.value);
-    thisWidget.setValue(settings.amountWidget.defaultValue);
-    thisWidget.initActions();
   }
   getElements(element){
     const thisWidget = this;
