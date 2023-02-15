@@ -1,9 +1,14 @@
-import { settings} from '../setting.js'; //?? select is't defined 
+import { settings} from '../setting.js'; 
+import BaseWidget from './BaseWidget.js';
 
-class AmountWidget{
+class AmountWidget extends BaseWidget{
   constructor(element) {
+    super(element, );
     const thisWidget = this;
-    thisWidget.getElements(element);
+    thisWidget.getElements(element, settings.amountWidget.defaultValue);
+    //added
+    //thisWidget.value = setting.amountWidget.defaultValue;
+    //thisWidget.setValue(thisWidget.input.value);
     thisWidget.setValue(settings.amountWidget.defaultValue);
     thisWidget.initActions();
   }
