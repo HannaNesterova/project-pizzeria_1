@@ -145,7 +145,7 @@ class Cart {
       }).then(function(parsedResponse){ // шо це за  parsedResponse
         console.log('parsedResponse', parsedResponse); 
       });//.catch(error)
-      //{console.error(error)};
+    //{console.error(error)};
   }
 }
 

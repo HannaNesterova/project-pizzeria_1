@@ -3,14 +3,14 @@ import BaseWidget from './BaseWidget.js';
 
 class AmountWidget extends BaseWidget{
   constructor(element) {
-    super(element, );
+    super(element);
     const thisWidget = this;
     thisWidget.getElements(element, settings.amountWidget.defaultValue);
     //added
     //thisWidget.value = setting.amountWidget.defaultValue;
     //thisWidget.setValue(thisWidget.input.value);
   }
-  getElements(element){
+  getElements(){
     const thisWidget = this;
 
     thisWidget.input = thisWidget.dom.wrapper.querySelector('.amount');
@@ -18,24 +18,24 @@ class AmountWidget extends BaseWidget{
     thisWidget.linkIncrease =thisWidget.dom.wrapper.querySelector('a[href="#more"]');
   }
 
-  announce() {
-    const thisWidget = this;
-    const event = new CustomEvent('updated', {
-      bubbles: true,
-    });
-    thisWidget.element.dispatchEvent(event);
+  
+
+  // parseValue(value){
+  //   return parseInt(value);
+  // }
+
+  isValid(value){
+    return  !isNaN(value)
+    && value >= settings.amountWidget.defaultMin 
+    && value <= settings.amountWidget.defaultMax;
   }
 
-  setValue(value) {
+  renderValue(){
     const thisWidget = this;
-    const newValue = parseInt(value);
-    /*TODO: Add validation*/
-    if (newValue !== thisWidget.value && !isNaN(newValue) && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax){
-      thisWidget.value = newValue;
-    }
+
     thisWidget.dom.input.value = thisWidget.value;
-    thisWidget.announce();
   }
+
   initActions() {
     const thisWidget = this;
     thisWidget.input.addEventListener('change', function () {
