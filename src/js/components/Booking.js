@@ -1,4 +1,4 @@
-import {select, templates} from './setting.js';
+import {select, templates} from '../setting.js';
 import AmountWidget from './AmountWidget.js'; // is not defined
 
 
@@ -9,17 +9,19 @@ class Booking {
     thisBooking.initAmountWidget();
   }
 
-  render (element) {
+  render (element) { // що є цей елемент,що він означає?
     const thisBooking = this;
     const generatedHTML = templates.bookingWidget();
 
     thisBooking.dom = {};
+
     thisBooking.dom.wrapper = element;
     thisBooking.dom.wrapper.innerHTML = generatedHTML;
-    thisBooking.dom.peopleAmount = document.querySelector(select.cart.booking.peopleAmount);
-    thisBooking.dom.hoursAmount=document.querySelector(select.cart.booking.hoursAmount);
+    thisBooking.dom.peopleAmount = document.querySelector(select.booking.peopleAmount);
+    thisBooking.dom.hoursAmount = document.querySelector(select.booking.hoursAmount);
+    console.log('people', thisBooking.dom.peopleAmount);
   }
-  initWidget() {
+  initAmountWidget() {
     const thisBooking = this;
     
     thisBooking.peopleAmount = new AmountWidget(thisBooking.dom.peopleAmount);

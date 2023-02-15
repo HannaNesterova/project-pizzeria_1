@@ -1,4 +1,4 @@
-import { settings, select, classNames, templates } from './setting.js';
+import { settings, select, classNames} from './setting.js';
 import Product  from './components/Product.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
@@ -98,10 +98,17 @@ const app = {
   initBooking: function(){
     const thisApp = this;
 
-    thisApp.containerWidget = document.querySelector('.booking-wrapper');
-    console.log('container', containerWidget);
+    
+    thisApp.wrapper = document.querySelector(select.containerOf.booking);
+    //thisApp.containerWidget = document.querySelector(select.containerOf.booking);
+    console.log('container',  thisApp.wrapper);
 
-    thisApp.booking = new Booking(bookingWidget);
+    const bookingWidget = thisApp.wrapper;
+
+    new Booking(bookingWidget);
+
+    //const bookingWidget = thisApp.wrapper;
+    //thisApp.booking = new Booking(bookingWidget);
 
   },
   init: function(){
