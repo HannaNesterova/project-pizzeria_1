@@ -3,13 +3,16 @@ import BaseWidget from './BaseWidget.js';
 
 class AmountWidget extends BaseWidget{
   constructor(element) {
-    super(element);
+    super(element, settings.amountWidget.defaultValue);
     const thisWidget = this;
-    thisWidget.getElements(element, settings.amountWidget.defaultValue);
+    thisWidget.getElements(element);
+    thisWidget.initActions();
+   
     //added
     //thisWidget.value = setting.amountWidget.defaultValue;
     //thisWidget.setValue(thisWidget.input.value);
   }
+
   getElements(){
     const thisWidget = this;
 
@@ -38,16 +41,22 @@ class AmountWidget extends BaseWidget{
 
   initActions() {
     const thisWidget = this;
-    thisWidget.input.addEventListener('change', function () {
-      thisWidget.setValue(thisWidget.input.value);
+    
+    thisWidget.dom.input.addEventListener('change', function() {
+ 
+      thisWidget.value = thisWidget.dom.input.value;
     });
-    thisWidget.dom.linkDecrease.addEventListener('click', function () {
+    thisWidget.dom.linkDecrease.addEventListener('click', function (e) {
+      e.preventDefault();
       thisWidget.setValue(thisWidget.value - 1);
     });
-    thisWidget.dom.linkIncrease.addEventListener('click', function () {
+    thisWidget.dom.linkIncrease.addEventListener('click', function (e) {
+      e.preventDefault();
       thisWidget.setValue(thisWidget.value + 1);
+
     });
   }
+  
 }
 
 export default AmountWidget;
