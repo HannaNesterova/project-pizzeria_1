@@ -1,9 +1,9 @@
-import { select } from '../setting.js';
+import {select} from '../settings.js';
 import AmountWidget from './AmountWidget.js';
 
 class CartProduct {
   constructor(menuProduct, element, productList) {
-  //add thirt argument productList, but why?
+  
 
     const thisCartProduct = this;
     //зберегти в (thisCartProduct)) ньому всі властивості з menuProduct.
@@ -15,7 +15,7 @@ class CartProduct {
     thisCartProduct.price = menuProduct.price;
     thisCartProduct.params = menuProduct.params;
 
-    thisCartProduct.remove = this.remove; // посилається на функцію remove  from class CartProduct
+    thisCartProduct.remove = this.remove; 
     thisCartProduct.edit = menuProduct.edit;
     thisCartProduct.getElements(element);
     thisCartProduct.initAmountWidget();
@@ -59,18 +59,20 @@ class CartProduct {
     });
     thisCartProduct.dom.wrapper.dispatchEvent(event);
   }
+
   initActions(){
     const thisCartProduct = this;
 
-    thisCartProduct.dom.edit.addEventListener('click', function(e){
-      e.preventDefault();
+    thisCartProduct.dom.edit.addEventListener('click', function(event){
+      event.preventDefault();
     });
-    thisCartProduct.dom.remove.addEventListener('click', function(e){
-      e.preventDefault(e);
+    thisCartProduct.dom.remove.addEventListener('click', function(event){
+      event.preventDefault();
       thisCartProduct.remove(event.detail.cartProduct);
       console.log(thisCartProduct.dom.remove);
     });
   }
+
   getData(){
     const thisCartProduct = this;
 
@@ -82,7 +84,7 @@ class CartProduct {
       name : thisCartProduct.name,
       priceSingle : thisCartProduct.priceSingle,
     };
-    return readyProductForServer; //чому ми пишемо тут реторн а в sendOrde не писали?
+    return readyProductForServer; 
   }
 }
 export default CartProduct;

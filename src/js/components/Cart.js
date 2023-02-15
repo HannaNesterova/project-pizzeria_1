@@ -1,5 +1,6 @@
-import { settings, select, templates, classNames } from '../setting.js';
-import CartProduct from './CartProduct.js';
+import {select, settings, classNames, templates} from '../settings.js';
+
+import CartProduct from './CartProducts.js';
 import utils from '../utils.js';
 
 class Cart {
@@ -11,46 +12,47 @@ class Cart {
     thisCart.sendOrder();
   }
 
-  // що таке element?
+  
   getElements(element) {
     const thisCart = this;
     thisCart.dom = {};
     thisCart.dom.wrapper = element;
     thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
     thisCart.dom.productList = thisCart.dom.wrapper.querySelector(select.cart.productList);
-
+    // додавання кошика
     thisCart.dom.deliveryFee = document.querySelector( select.cart.deliveryFee);
     thisCart.dom.subtotalPrice = document.querySelector( select.cart.subtotalPrice);
     thisCart.dom.totalPrice = document.querySelector(select.cart.totalPrice);
     thisCart.dom.totalPriceTitle = document.querySelector(select.cart.totalPriceTitle);
     thisCart.dom.totalNumber = document.querySelector( select.cart.totalNumber);
-
+    // додати адресу та телефон
     thisCart.dom.form = document.querySelector(select.cart.form);
-    thisCart.dom.formSubmite = document.querySelector(select.cart.formSubmit);
+    // thisCart.dom.formSubmite = document.querySelector(select.cart.formSubmit);
     thisCart.dom.phone = document.querySelector(select.cart.phone);
     thisCart.dom.address = document.querySelector(select.cart.address);
   }
 
+
   initActions() {
     const thisCart = this;
 
-    thisCart.dom.toggleTrigger.addEventListener('click', function (e) {
-      e.preventDefault();
+    thisCart.dom.toggleTrigger.addEventListener('click', function (event) {
+      event.preventDefault();
       thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
     });
 
     thisCart.dom.productList.addEventListener('updated', function(){
-    
+  
       thisCart.update();
     });
 
-    thisCart.dom.productList.addEventListener('remove', function(e){
-      e.preventDefault();
+    thisCart.dom.productList.addEventListener('remove', function(event){
+      event.preventDefault();
       thisCart.remove(event.detail.cartProduct);
     });
 
-    thisCart.dom.form.addEventListener('submit', function(e){
-      e.preventDefault();
+    thisCart.dom.form.addEventListener('submit', function(event){
+      event.preventDefault();
       thisCart.sendOrder();
     });
     console.log( thisCart.dom.form.addEventListener);
@@ -66,26 +68,29 @@ class Cart {
 
     /* add element to menu*/
     thisCart.dom.productList.appendChild(generatedDOM);
-    thisCart.products.push(new CartProduct(menuProduct, generatedDOM)); // це означає що ми додаємо щось в CartProduct через команду new?
+    thisCart.products.push(new CartProduct(menuProduct, generatedDOM)); 
     thisCart.update();
   }
-    
+  // додавання кошика
   update() {
     const thisCart = this;
     const deliveryFee = settings.cart.defaultDeliveryFee;
-    thisCart.totalNumber = 0; //для загальної кількості товарів
-    thisCart.subtotalPrice = 0; //загальна ціна за все
-    thisCart.totalPrice = 0; 
+    thisCart.totalNumber = 0; 
+    thisCart.subtotalPrice = 0; 
+    thisCart.totalPrice =0; 
+
+    // totalNumber = thisCart.totalNumber;
+    // subtotalPrice = thisCart.subtotalPrice;
 
     for (let product of thisCart.products) {
       //додайте for...of,який буде проходити через thisCart.products.
-      thisCart.totalNumber += product.amount; //це збільшує totalNumber на кількість elementів даного продукту
-      thisCart.subtotalPrice += product.price; //збільшиться subtotalPrice на його загальну ціну ( price)
+      thisCart.totalNumber += product.amount; 
+      thisCart.subtotalPrice += product.price; 
     }
     if (thisCart.totalNumber != 0) {
       thisCart.totalPrice = thisCart.subtotalPrice  + deliveryFee;
     } if( thisCart.subtotalPrice === 0){
-      thisCart.totalPrice ;   ///чому не прирівнюється до нуля?
+      thisCart.totalPrice ;   
     }
 
     thisCart.dom.deliveryFee.innerHTML = deliveryFee;
@@ -97,6 +102,8 @@ class Cart {
     console.log('subTotalPrice', thisCart.dom.subtotalPrice.innerHTML);
     console.log('delivery', thisCart.dom.deliveryFee.innerHTML);
   }
+
+  //видалення продуктів з кошика
 
   remove(cartProduct){
     const thisCart = this;
@@ -118,10 +125,10 @@ class Cart {
     const url = settings.db.url + '/' + settings.db.orders;
 
     const payload = {
-      
-      address: (thisCart.dom.address).value,//чому беремо в дужки?
+    
+      address: (thisCart.dom.address).value,
       phone: (thisCart.dom.phone).value,
-      totalPrice: thisCart.totalPrice, // не розумію де ми його діставали 
+      totalPrice: thisCart.totalPrice, 
       subtotalPrice: thisCart.subtotalPrice,
       totalNumber: thisCart.totalNumber,
       deliveryFee:settings.cart.defaultDeliveryFee,
@@ -138,14 +145,13 @@ class Cart {
       },
       body: JSON.stringify(payload),
     };
-      
+    
     fetch(url, options)
       .then(function(response){
-        return response.json(); // шо це за  response
-      }).then(function(parsedResponse){ // шо це за  parsedResponse
+        return response.json(); 
+      }).then(function(parsedResponse){ 
         console.log('parsedResponse', parsedResponse); 
-      });//.catch(error)
-    //{console.error(error)};
+      });
   }
 }
 

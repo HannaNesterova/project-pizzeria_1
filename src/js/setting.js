@@ -1,3 +1,4 @@
+ 
 export const select = {
   templateOf: {
     menuProduct: '#template-menu-product',
@@ -29,28 +30,6 @@ export const select = {
       linkDecrease: 'a[href="#less"]',
       linkIncrease: 'a[href="#more"]',
     },
-  },
-  cart: {
-    productList: '.cart__order-summary',
-    toggleTrigger: '.cart__summary',
-    //toggleTrigger: '.fa-chevron-down',
-    totalNumber: `.cart__total-number`,
-    totalPrice: '.cart__total-price strong, .cart__order-total .cart__order-price-sum strong',
-    totalPriceTitle:'.cart__order-total .cart__order-price-sum strong',
-    subtotalPrice: '.cart__order-subtotal .cart__order-price-sum strong',
-    deliveryFee: '.cart__order-delivery .cart__order-price-sum strong',
-    form: '.cart__order',
-    formSubmit: '.cart__order [type="submit"]',
-    phone: '[name="phone"]',
-    address: '[name="address"]',
-  },
-  cartProduct: {
-    amountWidget: '.widget-amount',
-    price: '.cart__product-price',
-    edit: '[href="#edit"]',
-    remove: '[href="#remove"]',
-  },
-  widgetDate: {
     datePicker: {
       wrapper: '.date-picker',
       input: `input[name="date"]`,
@@ -69,16 +48,42 @@ export const select = {
   nav: {
     links: '.main-nav a',
   },
-};
 
+  // CODE ADDED START
+
+  cart: {
+    productList: '.cart__order-summary',
+    toggleTrigger: '.cart__summary',
+    totalNumber: `.cart__total-number`,
+    totalPrice: '.cart__total-price strong, .cart__order-total .cart__order-price-sum strong',
+    totalPriceTitle:'.cart__order-total .cart__order-price-sum strong',
+    subtotalPrice: '.cart__order-subtotal .cart__order-price-sum strong',
+    deliveryFee: '.cart__order-delivery .cart__order-price-sum strong',
+    form: '.cart__order',
+    formSubmit: '.cart__order [type="submit"]',
+    phone: '[name="phone"]',
+    address: '[name="address"]',
+  },
+  cartProduct: {
+    amountWidget: '.widget-amount',
+    price: '.cart__product-price',
+    edit: '[href="#edit"]',
+    remove: '[href="#remove"]',
+
+  },
+
+  // CODE ADDED END
+};
 export const classNames = {
   menuProduct: {
     wrapperActive: 'active',
     imageVisible: 'active',
   },
+  // CODE ADDED START
   cart: {
     wrapperActive: 'active',
   },
+  // CODE ADDED END
   booking: {
     loading: 'loading',
     tableBooked: 'booked',
@@ -90,19 +95,24 @@ export const classNames = {
     active: 'active',
   }
 };
+
 export const settings = {
   amountWidget: {
     defaultValue: 1,
     defaultMin: 0,
     defaultMax: 10,
-  }, 
+  }, // CODE CHANGED
+  // CODE ADDED START
   cart: {
     defaultDeliveryFee: 20,
   },
+  // CODE ADDED END
   db: {
     url: '//localhost:3131',
     products: 'products',
     orders: 'orders',
+    product: 'product',
+    order: 'order',
     booking: 'booking',
     event: 'event',
     dateStartParamKey: 'date_gte',
@@ -121,6 +131,7 @@ export const settings = {
     tableIdAttribute: 'data-table',
   },
 };
+
 export const templates = {
   menuProduct: Handlebars.compile(document.querySelector(select.templateOf.menuProduct).innerHTML),
   // CODE ADDED START
@@ -128,4 +139,3 @@ export const templates = {
   // CODE ADDED END
   bookingWidget: Handlebars.compile(document.querySelector(select.templateOf.bookingWidget).innerHTML),
 };
-

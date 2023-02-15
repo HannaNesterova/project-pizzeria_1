@@ -35,6 +35,7 @@ utils.serializeFormToObject = function(form){
   }
   return output;
 };
+
 utils.convertDataSourceToDbJson = function(){
   const productJson = [];
   for(let key in dataSource.products){
@@ -43,6 +44,7 @@ utils.convertDataSourceToDbJson = function(){
 
   console.log(JSON.stringify({product: productJson, order: []}, null, '  '));
 };
+
 utils.queryParams = function(params){
   return Object.keys(params)
     .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
@@ -67,7 +69,6 @@ utils.addDays = function(dateStr, days){
   dateObj.setDate(dateObj.getDate() + days);
   return dateObj;
 };
-
 
 Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
   return (arg1 == arg2) ? options.fn(this) : options.inverse(this);

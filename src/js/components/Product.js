@@ -1,7 +1,6 @@
-import { select, templates, classNames } from '../setting.js';
+import {select, classNames,  templates} from '../settings.js';
 import AmountWidget from './AmountWidget.js';
 import utils from '../utils.js';
-
 
 class Product {
   constructor(id, data) {
@@ -14,9 +13,10 @@ class Product {
     thisProduct.initOrderForm();
     thisProduct.initAmountWidget();
     thisProduct.processOrder();
-    // thisProduct.addToCart();  // чому це тут  не треба ?
+    // thisProduct.addToCart(); 
     thisProduct.element;
   }
+
 
   renderInMenu() {
     const thisProduct = this;
@@ -44,13 +44,14 @@ class Product {
 
     /* START: add event listener to clickable trigger on event click */
     thisProduct.accordionTrigger.addEventListener('click', function (event) {
-    /* prevent default action for event */
+      /* prevent default action for event */
       event.preventDefault();
       /* find active product (product that has active class) */
       const activeProduct = document.querySelector(select.all.menuProductsActive);
       if (activeProduct !== thisProduct.element && activeProduct !== null) {
         /* if there is active product and it's not thisProduct.element, remove class active from it */
         activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
+          
       }
       /* toggle active class on thisProduct.element */
       thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive);
@@ -65,13 +66,14 @@ class Product {
     });
     for (let input of thisProduct.formInputs) {
       input.addEventListener('change', function () {
-        thisProduct.processOrder(); // що це за команда, вона закодована в JS???  
+        thisProduct.processOrder(); 
+        
       });
     }
     thisProduct.cartButton.addEventListener('click', function (event) {
       event.preventDefault();
       thisProduct.processOrder();
-      thisProduct.addToCart(); // так само і ця ???
+      thisProduct.addToCart(); 
     });
   }
   initAmountWidget() {
@@ -109,7 +111,7 @@ class Product {
             price += option.price;
           }
         }
-          
+        
         else {
           if (optionImage) {
             optionImage.classList.remove(classNames.menuProduct.imageVisible);
@@ -130,16 +132,18 @@ class Product {
   }
   addToCart() {
     const thisProduct = this;
-    //app.cart.add(thisProduct.readyCartProduct()); 
+    //   app.cart.add(thisProduct.readyCartProduct());
 
     const event = new CustomEvent('add-to-cart', {
-      bubbles: true,
-      detail: {
-        product: thisProduct.readyCartProduct(),
+      bubbles:true,
+      detail:{
+        product:thisProduct.readyCartProduct(),
       },
     });
+
     thisProduct.element.dispatchEvent(event);
   }
+
   readyCartProduct() {
     const thisProduct = this;
     const productSummary = {
@@ -165,7 +169,7 @@ class Product {
         label: param.label,
         options: {},
       };
-        
+      
       // for every option in this category
       for (let optionId in param.options) {
         // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
@@ -173,7 +177,7 @@ class Product {
         // check if there is param with a name of paramId in formData and if it includes optionId
         const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
         if (optionSelected) {
-          params[paramId].options[optionId] = option.label;////?????????????
+          params[paramId].options[optionId] = option.label;
         }
       }
     }
