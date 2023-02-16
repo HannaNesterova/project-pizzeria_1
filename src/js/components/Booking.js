@@ -1,5 +1,5 @@
 
-import { select, templates } from '../settings.js';
+import { select, templates } from '../setting.js';
 import AmountWidget from './AmountWidget.js';
 
 class Booking {
