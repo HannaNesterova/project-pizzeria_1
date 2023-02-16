@@ -31,7 +31,7 @@ class Booking {
     thisBooking.dom.date = document.querySelector(select.widgets.datePicker.wrapper);
     console.log('date', thisBooking.dom.date);
     thisBooking.dom.hour = document.querySelector(select.widgets.hourPicker.wrapper);
-    console.log('hour', thisBooking.dom.hour)
+    console.log('hour', thisBooking.dom.hour);
   }
 
   initWidgets() {
