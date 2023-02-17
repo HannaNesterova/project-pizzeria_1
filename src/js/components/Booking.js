@@ -24,10 +24,12 @@ getData(){
       endDateParam,
     ],
     eventsCurrent: [
+      settings.db.notRepeatParam,
       startDateParam,
       endDateParam,
     ],
     eventsRepeat : [
+      settings.db.repeatParam,
       endDateParam,
     ],
 };
@@ -39,6 +41,14 @@ console.log('getData params', params);
     eventsRepeat:   settings.db.url + '/' + settings.db.event   + '?' + params.eventsRepeat.join('&'),
   }
   console.log('urls', urls);
+
+  fetch(urls.booking)
+    .then(function(bookingsResponse){
+      return bookingsResponse.json();
+    })
+    .then(function(bookings){
+      console.log(bookings);
+    })
 }
 
   render(element) {
