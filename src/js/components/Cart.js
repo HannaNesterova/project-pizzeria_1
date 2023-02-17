@@ -55,7 +55,6 @@ class Cart {
       event.preventDefault();
       thisCart.sendOrder();
     });
-    console.log( thisCart.dom.form.addEventListener);
   }
 
   add(menuProduct) {
@@ -134,7 +133,6 @@ class Cart {
       deliveryFee:settings.cart.defaultDeliveryFee,
       products: []
     };
-    console.log('payload', payload);
     for(let prod of thisCart.products) {
       payload.products.push(prod.getData());
     }
@@ -150,7 +148,6 @@ class Cart {
       .then(function(response){
         return response.json(); 
       }).then(function(parsedResponse){ 
-        console.log('parsedResponse', parsedResponse); 
       });
   }
 }

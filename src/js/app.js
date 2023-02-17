@@ -9,7 +9,6 @@ const app = {
   initBooking: function(){
     const thisApp = this;
     const bookingWidget = document.querySelector(select.containerOf.booking);
-    console.log(bookingWidget);
     thisApp.booking = new Booking(bookingWidget);
   },
 
@@ -87,14 +86,12 @@ const app = {
         return rawResponse.json();
       })
       .then(function(parsedResponse){
-        console.log(parsedResponse);
         //save parsedResponse as thisApp.data.products;
         thisApp.data.products = parsedResponse; 
 
         //execute initMenu method
         thisApp.initMenu();
       });
-    console.log('thisApp.data', JSON.stringify(thisApp.data));
   },
   initCart: function () {
     const thisApp = this;

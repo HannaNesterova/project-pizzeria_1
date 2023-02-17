@@ -3,6 +3,7 @@ import { select, templates, settings } from '../setting.js';
 import AmountWidget from './AmountWidget.js';
 import DatePicker from './DatePicker.js';
 import HourPicker from './HourPicker.js';
+import utils from '../utils.js';
 
 class Booking {
   constructor(element) {
@@ -14,48 +15,44 @@ class Booking {
 getData(){
   const thisBooking = this; 
 
+  const startDateParam = settings.db.dateStartParamKey + '=' +  utils.dateToStr(thisBooking.date.minDate);
+  const endDateParam =   settings.db.dateEndParamKey + '=' +  utils.dateToStr(thisBooking.date.maxDate);
+
   const params = {
     booking: [
-
+      startDateParam,
+      endDateParam,
     ],
     eventsCurrent: [
-
+      startDateParam,
+      endDateParam,
     ],
     eventsRepeat : [
-
+      endDateParam,
     ],
 };
-console.log('getData params', params)
+console.log('getData params', params);
 
   const urls = {
     booking:        settings.db.url + '/' + settings.db.booking + '?' + params.booking.join('&'),
     eventsCurrent:  settings.db.url + '/' + settings.db.event   + '?' + params.eventsCurrent.join('&'),
     eventsRepeat:   settings.db.url + '/' + settings.db.event   + '?' + params.eventsRepeat.join('&'),
   }
-
+  console.log('urls', urls);
 }
 
   render(element) {
     const thisBooking = this;
-
     const generatedHTML = templates.bookingWidget();
 
     thisBooking.dom = {};
-
     thisBooking.dom.wrapper = element;
-    console.log( thisBooking.dom.wrapper);
     thisBooking.dom.wrapper.innerHTML = generatedHTML;
-
     thisBooking.dom.peopleAmount = document.querySelector(select.booking.peopleAmount);
-
     thisBooking.dom.houseAmount = document.querySelector(select.booking.hoursAmount);
-    console.log(thisBooking.dom.peopleAmount);
-
 
     thisBooking.dom.date = document.querySelector(select.widgets.datePicker.wrapper);
-    console.log('date', thisBooking.dom.date);
     thisBooking.dom.hour = document.querySelector(select.widgets.hourPicker.wrapper);
-    console.log('hour', thisBooking.dom.hour);
   }
 
   initWidgets() {
