@@ -107,7 +107,7 @@ export const settings = {
     defaultDeliveryFee: 20,
   },
   // CODE ADDED END
-  db: {
+  /*db: {
     url: '//localhost:3131',
     products: 'products',
     orders: 'orders',
@@ -115,6 +115,19 @@ export const settings = {
     order: 'order',
     booking: 'booking',
     event: 'event',
+    dateStartParamKey: 'date_gte',
+    dateEndParamKey: 'date_lte',
+    notRepeatParam: 'repeat=false',
+    repeatParam: 'repeat_ne=false',
+  },*/
+  db: {
+    url: '//'
+          + window.location.hostname
+          + (window.location.hostname=='localhost' ? ':3131' : ''),
+    products: 'products',
+    orders: 'orders',
+    bookings: 'bookings',
+    events: 'events',
     dateStartParamKey: 'date_gte',
     dateEndParamKey: 'date_lte',
     notRepeatParam: 'repeat=false',
