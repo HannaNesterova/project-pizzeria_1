@@ -147,56 +147,46 @@ class Booking {
   makeBooked(date, hour, duration, table){
     const thisBooking = this;
 
-    if(typeof thisBooking.booked[date] == 'undefined'){
+    if( typeof thisBooking.booked[date] =='undefined'){
       thisBooking.booked[date] = {};
     }
-
-    const startHour = utils.hourToNumber(hour);
-    if(typeof thisBooking.booked[date][hourBlock] == 'undefined'){
-      thisBooking.booked[date][hourBlock] = [];
-    }
-
-    thisBooking.booked[date][startHour].push(table);
-
-    for(let hourBlock = startHour; hourBlock < startHour + duration; hourBlock+= 0.5 ){
-      // console.log('loop', index);
-
-      if(typeof thisBooking.booked[date][hourBlock] == 'undefined'){
+    
+    const startHour =  utils.hourToNumber(hour);
+    for (let hourBlock = startHour; hourBlock < startHour + duration; hourBlock+= 0.5){
+      //console.log('loop', index);
+      if (typeof thisBooking.booked[date][hourBlock] =='undefined'){
         thisBooking.booked[date][hourBlock] = [];
       }
-
       thisBooking.booked[date][hourBlock].push(table);
     }
   }
 
-  updateDOM(){
+  updateDOM() {
     const thisBooking = this;
-
     thisBooking.date = thisBooking.datePicker.value;
     thisBooking.hour = utils.hourToNumber(thisBooking.hourPicker.value);
-
-    let allAvalible = false;
+    let allAvailable = false;
 
     if(
-      typeof thisBooking.booked[thisBooking.date] == 'undefinde'
-    ||
-    typeof thisBooking.booked[thisBooking.date][thisBooking.hour] == 'undefinde'
+      typeof thisBooking.booked[thisBooking.date] =='undefined'
+      ||
+      typeof thisBooking.booked[thisBooking.date] [thisBooking.hour] =='undefined'
     ){
-      allAvalible = true;
+      allAvailable = true;
     }
-    for (let table of thisBooking.dom.tables){
-      let tableId = table.getAttribute(settings.booking.tableIdAttribute);
-      if(!isNaN(tableId)){
-        tableId = this.parseInt(tableId);
-      }
 
+    for(let table of thisBooking.dom.tables){
+      let tableId = table.getAttribute(settings.booking.tableIdAttribute);
+      if(isNaN (tableId)){
+        tableId = parseInt(tableId);
+      }
       if(
-        !allAvalible
-        && 
-        thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId)
+        !allAvailable
+        &&
+        thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId) > -1
       ){
         table.classList.add(classNames.booking.tableBooked);
-      } else {
+      }else{
         table.classList.remove(classNames.booking.tableBooked);
       }
     }
