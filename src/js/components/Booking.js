@@ -122,26 +122,25 @@ class Booking {
 
   parseData(bookings, eventsCurrent, eventsRepeat){
     const thisBooking = this;
-    thisBooking.booked =  {};
-    console.log('thisBooking.booked', thisBooking.booked);
-    
+    thisBooking.booked ={};
     for (let item of bookings){
       thisBooking.makeBooked(item.date, item.hour, item.duration, item.table);
     }
 
     for (let item of eventsCurrent){
-      thisBooking.makeBooked(item.date, item.hour.item.duration.item.table);
+      thisBooking.makeBooked(item.date, item.hour, item.duration, item.table);
     }
-    const minDate = thisBooking.date.minDate;
-    const maxDate = thisBooking.date.maxDate;
+    const minDate  = thisBooking.date.minDate;
+    const maxDate  = thisBooking.date.maxDate;
 
     for (let item of eventsRepeat){
       if(item.repeat == 'daily'){
         for(let loopDate = minDate; loopDate <= maxDate; loopDate = utils.addDays(loopDate, 1)){
-          thisBooking.makeBooked(utils.dateToStr(loopDate), item.hour.item.duration.item.table);
-        }
-      }
+          thisBooking.makeBooked(utils.dateToStr(loopDate), item.hour, item.duration, item.table);
+        } 
+      } 
     }
+    console.log(' thisBooking.booked',  thisBooking.booked);
     thisBooking.updateDOM();
   }
   makeBooked(date, hour, duration, table){
@@ -163,8 +162,8 @@ class Booking {
 
   updateDOM() {
     const thisBooking = this;
-    thisBooking.date = thisBooking.datePicker.value;
-    thisBooking.hour = utils.hourToNumber(thisBooking.hourPicker.value);
+    thisBooking.date = thisBooking.date.value;
+    thisBooking.hour = utils.hourToNumber(thisBooking.hour.value);
     let allAvailable = false;
 
     if(
