@@ -224,19 +224,24 @@ class Booking {
       tableID = parseInt(tableID);
 
       domTables.addEventListener('click', function () {
-        if (domTables.classList.contains(classNames.booking.tableBooked)) {
+        if(domTables.classList.contains(classNames.booking.tableBooked)){
+          domTables.classList.add('selected')}  
+        
+         else if (domTables.classList.contains(classNames.booking.tableBooked)) {
+          domTables.classList.remove('selected');
           alert('Table is booked!');
-        } else if (!domTables.classList.contains(classNames.booking.tableBooked)) {
+        } else if (!domTables.classList.contains(classNames.booking.selected)) {
           domTables.classList.add(classNames.booking.tableBooked);
           console.log('Blooked');
-          console.log('thisBooking.tableUnbooked', tableID);
+          console.log('thisBooking.selected', tableID);
         } else {
-          domTables.classList.remove(classNames.booking.tableBooked);
+
+          domTables.classList.remove(classNames.booking.selected);
           console.log('Unblooked');
         }
 
         thisBooking.tableUnbooked = tableID;
-        console.log('thisBooking.tableUnbooked', tableID);
+        console.log('thisBooking.selected', tableID);
       });
     }
   }
