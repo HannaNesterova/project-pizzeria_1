@@ -66,8 +66,8 @@ class Booking {
   getData(){
     const thisBooking = this;
 
-    const startDateParam = settings.db.dateStartParamKey + '=' + utils.dateToStr(thisBooking.date.minDate);
-    const endDateParam = settings.db.dateEndParamKey + '=' + utils.dateToStr(thisBooking.date.maxDate);
+    const startDateParam = settings.db.dateStartParamKey + '=' + utils.dateToStr(thisBooking.datePicker.minDate);
+    const endDateParam = settings.db.dateEndParamKey + '=' + utils.dateToStr(thisBooking.datePicker.maxDate);
 
     const params = {
       bookings: [
@@ -130,8 +130,8 @@ class Booking {
     for (let item of eventsCurrent){
       thisBooking.makeBooked(item.date, item.hour, item.duration, item.table);
     }
-    const minDate  = thisBooking.date.minDate;
-    const maxDate  = thisBooking.date.maxDate;
+    const minDate  = thisBooking.datePicker.minDate;
+    const maxDate  = thisBooking.datePicker.maxDate;
 
     for (let item of eventsRepeat){
       if(item.repeat == 'daily'){
@@ -162,8 +162,8 @@ class Booking {
 
   updateDOM() {
     const thisBooking = this;
-    thisBooking.date = thisBooking.date.value;
-    thisBooking.hour = utils.hourToNumber(thisBooking.hour.value);
+    thisBooking.date = thisBooking.datePicker.value;
+    thisBooking.hour = utils.hourToNumber(thisBooking.hourPicker.value);
     
     let allAvailable = false;
 
@@ -206,7 +206,7 @@ class Booking {
     thisBooking.dom.date = document.querySelector(select.widgets.datePicker.wrapper);
     thisBooking.dom.hour = document.querySelector(select.widgets.hourPicker.wrapper);
   
-  thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(select.booking.tables);
+    thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(select.booking.tables);
   }
 
   initWidgets() {
