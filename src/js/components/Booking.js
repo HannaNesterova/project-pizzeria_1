@@ -201,10 +201,10 @@ class Booking {
     thisBooking.dom.wrapper = element;
     thisBooking.dom.wrapper.innerHTML = generatedHTML;
     thisBooking.dom.peopleAmount = document.querySelector(select.booking.peopleAmount);
-    thisBooking.dom.houseAmount = document.querySelector(select.booking.hoursAmount);
+    thisBooking.dom.hoursAmount = document.querySelector(select.booking.hoursAmount);
 
-    thisBooking.dom.date = document.querySelector(select.widgets.datePicker.wrapper);
-    thisBooking.dom.hour = document.querySelector(select.widgets.hourPicker.wrapper);
+    thisBooking.dom.datePicker = document.querySelector(select.widgets.datePicker.wrapper);
+    thisBooking.dom.hourPicker = document.querySelector(select.widgets.hourPicker.wrapper);
   
     thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(select.booking.tables);
   }
@@ -219,10 +219,10 @@ class Booking {
     thisBooking.dom.houseAmount.addEventListener('update', function () { });
 
     thisBooking.datePicker = new DatePicker(thisBooking.dom.date);
-    thisBooking.dom.date.addEventListener('click', function() {});
+    thisBooking.dom.datePicker.addEventListener('click', function() {});
 
     thisBooking.hourPicker = new HourPicker(thisBooking.dom.hour);
-    thisBooking.dom.hour.addEventListener('click', function() {});
+    thisBooking.dom.hourPicker.addEventListener('click', function() {});
 
     thisBooking.dom.wrapper.addEventListener('update', function(){
       thisBooking.updateDOM();
