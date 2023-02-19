@@ -14,7 +14,7 @@ class Booking {
     thisBooking.initTables();
     thisBooking.sendBooking()
 
-    thisBooking.tablesClicked = [];
+    thisBooking.tablesClicked = []; // для чого вони сказали це створити,як це задіяти?
   }
   render(wrapper){
     const thisBooking = this;

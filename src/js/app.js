@@ -44,11 +44,6 @@ const app = {
 
     /*add class Active to matching pages, remove class Active from non-matching pages */
     for (let page of thisApp.pages) {
-      // if (page.id == pageId) {
-      //   page.classList.add(classNames.pages.active);
-      // } else {
-      //   page.classList.remove(classNames.pages.active);
-      // }
       page.classList.toggle(classNames.pages.active, page.id == pageId);
     }
     for (let link of thisApp.navLinks) {
@@ -75,10 +70,6 @@ const app = {
         thisApp.initMenu();
         /*execute initMenu method*/
       });
-    // .catch(function (error) {
-    //   console.error(error.message);
-    //   //alert('You have an error!');
-    // });
   },
 
   initMenu: function () {

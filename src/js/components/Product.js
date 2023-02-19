@@ -58,10 +58,6 @@ class Product {
 
   initAccordion() {
     const thisProduct = this;
-    //   /* find the clickable trigger (the element that should react to clicking) */
-    // const clickableTrigger = thisProduct.element.querySelector(
-    //   select.menuProduct.clickable
-    // );
     //   /* START: add event listener to clickable trigger on event click */
     thisProduct.accordionTrigger.addEventListener('click', function (event) {
       event.preventDefault();
