@@ -162,7 +162,6 @@ class Product {
 
   addToCart() {
     const thisProduct = this;
-    //app.cart.add(thisProduct.readyCartProduct());
     //передайте те, що повертає thisProduct.readyCartProduct
     const event = new CustomEvent('add-to-cart', {
       bubbles: true,
