@@ -218,10 +218,10 @@ class Booking {
     thisBooking.houseAmount = new AmountWidget(thisBooking.dom.houseAmount);
     thisBooking.dom.houseAmount.addEventListener('update', function () { });
 
-    thisBooking.date = new DatePicker(thisBooking.dom.date);
+    thisBooking.datePicker = new DatePicker(thisBooking.dom.date);
     thisBooking.dom.date.addEventListener('click', function() {});
 
-    thisBooking.hour = new HourPicker(thisBooking.dom.hour);
+    thisBooking.hourPicker = new HourPicker(thisBooking.dom.hour);
     thisBooking.dom.hour.addEventListener('click', function() {});
 
     thisBooking.dom.wrapper.addEventListener('update', function(){
