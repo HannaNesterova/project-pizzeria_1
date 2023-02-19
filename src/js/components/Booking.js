@@ -164,6 +164,7 @@ class Booking {
     const thisBooking = this;
     thisBooking.date = thisBooking.date.value;
     thisBooking.hour = utils.hourToNumber(thisBooking.hour.value);
+    
     let allAvailable = false;
 
     if(
@@ -190,6 +191,8 @@ class Booking {
       }
     }
   }
+
+  
   render(element) {
     const thisBooking = this;
     const generatedHTML = templates.bookingWidget();
@@ -202,6 +205,8 @@ class Booking {
 
     thisBooking.dom.date = document.querySelector(select.widgets.datePicker.wrapper);
     thisBooking.dom.hour = document.querySelector(select.widgets.hourPicker.wrapper);
+  
+  thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(select.booking.tables);
   }
 
   initWidgets() {
