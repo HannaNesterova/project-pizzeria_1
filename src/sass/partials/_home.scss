@@ -1,0 +1,64 @@
+.home-form{
+    .upper__container-home{
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        .item-one{
+            background-image: url(../images/pizzeria-home/assets/pizza-1.jpg);
+            width: 350px;
+            height: 125px;
+            border-radius: 5px;
+            position: relative;
+            background-position: center;
+            background-size: cover;
+            background-repeat: repeat;
+        }
+            .home_img-pretitle-one{
+                position: absolute;
+                top: 15%;
+                left:19%;
+                color: aliceblue;
+                font-size: 20px;
+                text-transform: uppercase;
+                font-weight: 600;
+            }
+        .item-two{
+            background-image: url(../images/pizzeria-home/assets/pizza-2.jpg);
+            width: 350px;
+            height: 125px;
+            border-radius: 5px;
+            position: relative;
+            background-position: center;
+            background-size: cover;
+            background-repeat: repeat;
+        }
+        .home_img-pretitle-two{
+            position: absolute;
+            top: 15%;
+            left:19%;
+            color: aliceblue;
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+    }
+    .home-back-picture{
+        background-color: #ff6b6b;
+        height: 125px;
+        position: relative;
+        margin-top: 10px;
+    .item-three{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        color: white;
+        }
+        .home_img-pretitle-three{
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+    }
+}

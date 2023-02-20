@@ -17,8 +17,6 @@ constructor(element){
         const element = utils.createDOMFromHTML(generatedHTML);
         thisHome.dom.wrapper.appendChild(element);
       }
-    
-    
 };
 
 export default Home;
