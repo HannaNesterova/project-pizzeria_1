@@ -11,8 +11,6 @@ class Booking {
     thisBooking.render(element);
     thisBooking.initWidgets();
     thisBooking.getData();
-    thisBooking.initTables();
-    thisBooking.sendBooking()
 
     thisBooking.tablesClicked = []; // для чого вони сказали це створити,як це задіяти?
   }
@@ -53,6 +51,10 @@ class Booking {
  
     thisBooking.dom.wrapper.addEventListener('updated', function () {
       thisBooking.updateDOM();
+
+      thisBooking.dom.floor.addEventListener('click', function(event){
+        thisBooking.initTables(event);
+      })
 
       // thisBooking.dom.form.addEventListener('submit', function (event) {
       //   event.preventDefault();
@@ -215,35 +217,32 @@ class Booking {
     }
   }
 
-       
-  initTables(){
+  unselectedTable(){
+    const thisBooking = this;
+    for(let table of thisBooking.dom.tables){
+      table.classList.remove('selected');
+    }
+    thisBooking.selectedTable = undefined;
+  } 
+
+  initTables(event){
     const thisBooking = this;
 
-    for (let domTables of thisBooking.dom.tables) {
-      let tableID = domTables.getAttribute(settings.bookings.tableIdAttribute);
-      tableID = parseInt(tableID);
-
-      domTables.addEventListener('click', function () {
-        if(domTables.classList.contains(classNames.booking.tableBooked)){
-          domTables.classList.add('selected')}  
-        
-         else if (domTables.classList.contains(classNames.booking.tableBooked)) {
-          domTables.classList.remove('selected');
-          alert('Table is booked!');
-        } else if (!domTables.classList.contains(classNames.booking.selected)) {
-          domTables.classList.add(classNames.booking.tableBooked);
-          console.log('Blooked');
-          console.log('thisBooking.selected', tableID);
-        } else {
-
-          domTables.classList.remove(classNames.booking.selected);
-          console.log('Unblooked');
-        }
-
-        thisBooking.tableUnbooked = tableID;
-        console.log('thisBooking.selected', tableID);
-      });
+   if(event.target.classList.contains('table')){
+    const isTableBooked = event.target.classList.contains('booked');
+    if( isTableBooked){
+     alert('The table has alredy booked'); 
+    } else{
+      const clickedTable = event.target.getAttribute('data-table');
+      if(thisBooking.selectedTable == clickedTable){
+        thisBooking.unselectedTable();
+      } else {
+        thisBooking.unselectedTable();
+        event.target.classList.add('selected');
+        thisBooking.selectedTable = clickedTable;
+      }
     }
+   }
   }
 
 
@@ -286,7 +285,7 @@ class Booking {
         console.log('parsedResponse booking', parsedResponse);
         thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
         thisBooking.updateDOM();
-        //window.location.reload();
+        window.location.reload();
       });
   }
 }
