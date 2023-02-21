@@ -9,7 +9,11 @@
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="vendor/range-slider.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://kit.fontawesome.com/e503b77c8d.css" crossorigin="anonymous">
+
+
 </head>
 <body>
 
@@ -254,7 +258,7 @@
     </div>
   </script>
 
-  <script id="template-home-widget" type="text/x-handlebars-template">
+  <script id="template-home-widget" class="container" type="text/x-handlebars-template">
     <div class="home-widget">
       <h2 class="page__title no-spacing">Home</h2>
       <form class="home-form">
@@ -276,19 +280,94 @@
         <p>tue-sun, 12pm- 12am</p>
       </div>
       </div>
+      <div class="carousel" data-flickity='{ "cellAlign": "left", "contain": true, "autoPlay": 3000, "wrapAround": true}'>
+        <div class="flex-container-carousel">
+          <div class="carousel-img"></div>
+          <div class="carousel-description">
+          <h3>amazing service!</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem aliquid aperiam fugiat officia delectus eveniet nemo minima quis totam. </p>
+          <p><i>- Margaret Osborn</i></p>
+        </div>
+        </div>
+  
+        <div class="flex-container-carousel">
+        <div class=" carousel-img"></div>  
+        <div class="carousel-description">
+          <h3>amazing service!</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem aliquid aperiam fugiat officia delectus eveniet nemo minima quis totam.</p>
+          <p><i>- Margaret Osborn</i> </p>
+        </div>
+        </div>
+  
+        <div class="flex-container-carousel">
+        <div class="carousel-img"></div>
+        <div class="carousel-description">
+          <h3>amazing service!</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem aliquid aperiam fugiat officia delectus eveniet nemo minima quis totam. </p>
+          <p><i>- Margaret Osborn</i> </p>
+        </div>
+        </div>
+      </div>
       </form>
 
+      <div class="section-img">
+          <div class="img-foot_1 ">
+            <img class="img-boot one">
+            <div class="icons-img">
+              <p class="heart"><i class="fa-solid fa-heart"></i></p>
+              <p class="share"><i class="fa-solid fa-share-nodes"></i></p>
+            </div>
+        </div>
+        <div class="img-foot_2">
+            <img class="img-boot two">
+            <div class="icons-img">
+              <p><i class="fa-solid fa-heart"></i></p>
+              <p><i class="fa-solid fa-share-nodes"></i></p>
+            </div>
+        </div>
+        <div class="img-foot_3">
+            <img class="img-boot three">
+            <div class="icons-img">
+              <p><i class="fa-solid fa-heart"></i></p>
+              <p><i class="fa-solid fa-share-nodes"></i></p>
+            </div>
+        </div>
+        <div class="img-foot_4">
+            <img class="img-boot four">
+            <div class="icons-img">
+              <p><i class="fa-solid fa-heart"></i></p>
+              <p><i class="fa-solid fa-share-nodes"></i></p>
+            </div>
+        </div>
+        <div class="img-foot_5">
+            <img class="img-boot five">
+            <div class="icons-img">
+              <p><i class="fa-solid fa-heart"></i></p>
+              <p><i class="fa-solid fa-share-nodes"></i></p>
+            </div>
+        </div>
+        <div class="img-foot_6">
+            <img class="img-boot six">
+            <div class="icons-img">
+              <p><i class="fa-solid fa-heart"></i></p>
+              <p><i class="fa-solid fa-share-nodes"></i></p>
+            </div>
+        </div>
+      </div>
       
 
     </div>
   </script>
 
+  <!-- JavaScript -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="/vendor/range-slider.min.js"></script>
   <!-- <script src="js/functions.js"></script> -->
   <!-- <script src="js/data.js"></script> -->
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <script src="https://kit.fontawesome.com/e503b77c8d.js" crossorigin="anonymous"></script>
   <script src="js/app.js" type="module"></script>
 
 </body>
