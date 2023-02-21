@@ -35,7 +35,7 @@ class Booking {
     thisBooking.dom.address = document.querySelector(select.booking.addressInput);
     thisBooking.dom.startersCheck = document.querySelectorAll(select.booking.startersCheck);
     thisBooking.dom.orderConfirmationInputs = document.querySelectorAll('.order-confirmation input');
-    thisBooking.dom.starters = thisBooking.dom.wrapper.querySelectorAll(select.booking.starters);
+    thisBooking.dom.starters = document.querySelectorAll(select.booking.starters);
   }
 
   initWidgets() {
@@ -240,27 +240,34 @@ class Booking {
 
   sendBooking() {
     const thisBooking = this;
-
     const url = settings.db.url + '/' + settings.db.bookings;
-    let isChecked = false;
+    //let isChecked = false;
+
+    const phoneInput = thisBooking.dom.phone;
+
+    phoneInput.addEventListener('keypress', function(event) {
+      if (event.which < 48 || event.which > 57) {
+        event.preventDefault(); 
+      }
+    });
 
     const payload = {
       date: thisBooking.date,
       hour: utils.numberToHour(thisBooking.hour),
       table: thisBooking.tableUnbooked,
-      duration: thisBooking.hoursAmount.value,
-      people: thisBooking.peopleAmount.value,
-      phone: parseInt(thisBooking.dom.phone.value),
+      duration:  parseInt(thisBooking.dom.duration.value),
+      people:  parseInt(thisBooking.dom.people.value),
+      phone: phoneInput.value,
       mail: thisBooking.dom.address.value,
       starters: [],
     };
 
     for (let domStarter of thisBooking.dom.starters) {
-      if (!domStarter.checked === isChecked) {
+      if (domStarter.checked == true) {
         payload.starters.push(domStarter.value);
-        console.log('payload.starters', payload.starters);
       }
     }
+    console.log('payload.starters', domStarter.value);
 
     const options = {
       method: 'POST',
@@ -276,10 +283,12 @@ class Booking {
       }).then(function (parsedResponse) {
         console.log('parsedResponse booking', parsedResponse);
         thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
-        thisBooking.updateDOM();
-        window.location.reload();
+  
+        //window.location.reload();
       });
+      thisBooking.updateDOM();
   }
+
 }
 
 
