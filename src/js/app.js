@@ -17,12 +17,12 @@ const app = {
 
     let pageMatchingHash = thisApp.pages[0];
 
-     for (let page of thisApp.pages) {
-       if (page.id == idFromHash) {
-         pageMatchingHash = page.id;
-         break;
-       }
-     }
+    for (let page of thisApp.pages) {
+      if (page.id == idFromHash) {
+        pageMatchingHash = page.id;
+        break;
+      }
+    }
 
     thisApp.activatePage(pageMatchingHash);
 

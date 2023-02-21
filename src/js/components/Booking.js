@@ -54,15 +54,7 @@ class Booking {
 
       thisBooking.dom.floor.addEventListener('click', function(event){
         thisBooking.initTables(event);
-      })
-
-      // thisBooking.dom.form.addEventListener('submit', function (event) {
-      //   event.preventDefault();
-      //   thisBooking.sendBooking();
-      // });
-    // thisBooking.dom.tables = addEventListener('click', function(){
-    //  thisBooking.initTables();
-    //  })
+      });
     });
   }
 
@@ -228,21 +220,21 @@ class Booking {
   initTables(event){
     const thisBooking = this;
 
-   if(event.target.classList.contains('table')){
-    const isTableBooked = event.target.classList.contains('booked');
-    if( isTableBooked){
-     alert('The table has alredy booked'); 
-    } else{
-      const clickedTable = event.target.getAttribute('data-table');
-      if(thisBooking.selectedTable == clickedTable){
-        thisBooking.unselectedTable();
-      } else {
-        thisBooking.unselectedTable();
-        event.target.classList.add('selected');
-        thisBooking.selectedTable = clickedTable;
+    if(event.target.classList.contains('table')){
+      const isTableBooked = event.target.classList.contains('booked');
+      if( isTableBooked){
+        alert('The table has alredy booked'); 
+      } else{
+        const clickedTable = event.target.getAttribute('data-table');
+        if(thisBooking.selectedTable == clickedTable){
+          thisBooking.unselectedTable();
+        } else {
+          thisBooking.unselectedTable();
+          event.target.classList.add('selected');
+          thisBooking.selectedTable = clickedTable;
+        }
       }
     }
-   }
   }
 
 

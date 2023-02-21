@@ -15,5 +15,17 @@ body {
 .container {
   max-width: 700px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 30px;
+}
+
+.footer{
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+}
+
+.footer-text{
+  color: #ff6b6b;
+  padding: 50px 0px;
+  cursor: pointer;
 }
