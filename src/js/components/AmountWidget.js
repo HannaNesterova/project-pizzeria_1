@@ -16,9 +16,9 @@ class AmountWidget extends BaseWidget {
 
     thisWidget.dom.input = thisWidget.dom.wrapper.querySelector('input.amount');
     thisWidget.dom.linkDecrease =
-      thisWidget.dom.wrapper.querySelector('a[href="#less"]');
+    thisWidget.dom.wrapper.querySelector('a[href="#less"]');
     thisWidget.dom.linkIncrease =
-      thisWidget.dom.wrapper.querySelector('a[href="#more"]');
+    thisWidget.dom.wrapper.querySelector('a[href="#more"]');
     thisWidget.setValue(thisWidget.dom.input.value);
   }
 

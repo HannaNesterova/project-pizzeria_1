@@ -17,9 +17,10 @@ const app = {
     const idFromHash = window.location.hash.replace('#/', '');
 
     let pageMatchingHash = thisApp.pages[0];
+    const homePageId = 'home'; 
 
     for (let page of thisApp.pages) {
-      if (page.id == idFromHash) {
+      if (page.id == idFromHash || page.id == homePageId) {
         pageMatchingHash = page.id;
         break;
       }
