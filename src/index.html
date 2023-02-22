@@ -110,7 +110,7 @@
     </li>
   </script>
 
-  <script id="template-menu-product" type="text/x-handlebars-template">
+  <script id="template-menu-product" type="text/x-handlebars-template" id="order-product">
     <article class="product"> <!-- product -->
 
         <header class="product__header">
@@ -157,7 +157,7 @@
                 <h3 class="product__params-title">{{{ label }}}</h3>
                 <select name="{{ paramId }}">
                   {{#each options}}
-                  <option value="{{ @key }}" {{#if default}}selected{{/if}}>{{{ label }}} (${{{ price }}})</option>
+                  <option value="{{ @key }}" {{#if default}}{{/if}}>{{{ label }}} (${{{ price }}})</option>
                   {{/each}}
                 </select>
               </li>
@@ -264,8 +264,9 @@
       <form class="home-form">
        <div class="upper__container-home">
         <div class="item-one">
-          <div class="home_container-item">
-            <p class="home_img-pretitle-one">order online</p> 
+          <!-- <div class="home_container-item">  -->
+          <div id="home_container-item" class="home_container-item">
+            <a href="#" class="home_img-pretitle-one">order online</a> 
             <p class="img-title-one"> Delicious food delivered to your door</p>
           </div>
         </div>

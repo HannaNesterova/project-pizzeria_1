@@ -98,9 +98,7 @@ export const classNames = {
   pages: {
     active: 'active',
   },
-  pageHome: {
 
-  }
 };
 
 export const settings = {
