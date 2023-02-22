@@ -17,14 +17,16 @@ class Home {
     const generatedHTML = templates.homeWidget();
     const element = utils.createDOMFromHTML(generatedHTML);
     thisHome.dom.wrapper.appendChild(element);
-
+     
+    thisHome.order = document.querySelector('a[href="#order"]');
     const order = document.querySelector('a[href="#order"]');
-    console.log('order', order);
 
-    thisHome.btnOrder = document.querySelector('item-one');
+    thisHome.btnOrder = document.querySelector('.item-one');
+    thisHome.btnBooking = document.querySelector('.item-two');
 
+    thisHome.booking = document.querySelector('a[href="#booking"]');
     const booking = document.querySelector('a[href="#booking"]');
-    console.log('booking', booking);
+
 
   }
 
@@ -34,9 +36,14 @@ class Home {
     if (thisHome.btnOrder) {
         thisHome.btnOrder.addEventListener('click', function() {
           // Add the "active" class to the "order" element
-          order.classList.add('active');
-          console.log('Button clicked!');
+          order.classList.toggle('active');
+          thisHome.order.classList.toggle('active');
         });
+     }if(thisHome.btnBooking){
+        thisHome.btnBooking.addEventListener('click', function(){
+            booking.classList.toggle('active');
+            thisHome.booking.classList.toggle('active');
+        })
      }
   }
 }
