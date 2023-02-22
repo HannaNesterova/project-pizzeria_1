@@ -201,6 +201,7 @@
           display: none;
           opacity: 0;
           transition: all 3s ease-in-out; 
+          pointer-events: none;
         }
         &:hover{
           .heart{
@@ -217,91 +218,144 @@
             z-index: 2;
             transform: translateY(-10px); 
           }
+          opacity: 1;
         }
     }
 
             
   .img-foot_2{
     position: relative;
+    .heart,
+    .share {
+      display: none;
+      opacity: 0;
+      transition: all 3s ease-in-out; 
+      pointer-events: none;
+    }
     &:hover{
       .heart{
         cursor: pointer;
         display: block;
         opacity: 1;
-        z-index: 2; /* Set a higher z-index value for the heart icon */
+        z-index: 2;
+        transform: translateY(-10px);
       }
       .share{
         cursor: pointer;
         display: block;
         opacity: 1;
-        z-index: 2; /* Set a higher z-index value for the share icon */
+        z-index: 2;
+        transform: translateY(-10px); 
       }
+      opacity: 1;
     }
   }
   .img-foot_3{
     position: relative;
+    .heart,
+    .share {
+      display: none;
+      opacity: 0;
+      transition: all 3s ease-in-out; 
+      pointer-events: none;
+    }
     &:hover{
       .heart{
         cursor: pointer;
         display: block;
         opacity: 1;
-        z-index: 2; /* Set a higher z-index value for the heart icon */
+        z-index: 2;
+        transform: translateY(-10px);
       }
       .share{
         cursor: pointer;
         display: block;
         opacity: 1;
-        z-index: 2; /* Set a higher z-index value for the share icon */
+        z-index: 2;
+        transform: translateY(-10px); 
       }
+      opacity: 1;
     }
   }
   .img-foot_4{
     position: relative;
+    .heart,
+    .share {
+      display: none;
+      opacity: 0;
+      transition: all 3s ease-in-out; 
+      pointer-events: none;
+    }
     &:hover{
       .heart{
         cursor: pointer;
         display: block;
         opacity: 1;
-        z-index: 2; /* Set a higher z-index value for the heart icon */
+        z-index: 2;
+        transform: translateY(-10px);
       }
       .share{
         cursor: pointer;
         display: block;
         opacity: 1;
-        z-index: 2; /* Set a higher z-index value for the share icon */
+        z-index: 2;
+        transform: translateY(-10px); 
       }
+      opacity: 1;
     }
   }
   .img-foot_5{
     position: relative;
+    .heart,
+    .share {
+      display: none;
+      opacity: 0;
+      transition: all 3s ease-in-out; 
+      pointer-events: none;
+    }
     &:hover{
       .heart{
+        cursor: pointer;
         display: block;
         opacity: 1;
-        z-index: 2; /* Set a higher z-index value for the heart icon */
+        z-index: 2;
+        transform: translateY(-10px);
       }
       .share{
+        cursor: pointer;
         display: block;
         opacity: 1;
-        z-index: 2; /* Set a higher z-index value for the share icon */
+        z-index: 2;
+        transform: translateY(-10px); 
       }
+      opacity: 1;
     }
   }
   .img-foot_6{
     position: relative;
+    .heart,
+    .share {
+      display: none;
+      opacity: 0;
+      transition: all 3s ease-in-out; 
+      pointer-events: none;
+    }
     &:hover{
       .heart{
         cursor: pointer;
         display: block;
         opacity: 1;
-        z-index: 2; /* Set a higher z-index value for the heart icon */
+        z-index: 2;
+        transform: translateY(-10px);
       }
       .share{
         cursor: pointer;
         display: block;
         opacity: 1;
-        z-index: 2; /* Set a higher z-index value for the share icon */
+        z-index: 2;
+        transform: translateY(-10px); 
       }
+      opacity: 1;
     }
   }
 
