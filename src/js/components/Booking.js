@@ -11,6 +11,7 @@ class Booking {
     thisBooking.render(element);
     thisBooking.initWidgets();
     thisBooking.getData();
+    
 
     thisBooking.tablesClicked = []; // для чого вони сказали це створити,як це задіяти?
   }
@@ -116,9 +117,6 @@ class Booking {
         ]);
       })
       .then(([bookings, eventsCurrent, eventsRepeat]) => {
-        // console.log(bookings);
-        //console.log(eventsCurrent);
-        //console.log(eventsRepeat);
         thisBooking.parseData(bookings, eventsCurrent, eventsRepeat);
       });
   }
@@ -222,7 +220,7 @@ class Booking {
 
     if(event.target.classList.contains('table')){
       const isTableBooked = event.target.classList.contains('booked');
-      if( isTableBooked){
+      if(isTableBooked || isTableBooked == clickedTable){
         alert('The table has alredy booked'); 
       } else{
         const clickedTable = event.target.getAttribute('data-table');

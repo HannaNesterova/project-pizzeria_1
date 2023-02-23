@@ -18,34 +18,35 @@ class Home {
     const element = utils.createDOMFromHTML(generatedHTML);
     thisHome.dom.wrapper.appendChild(element);
      
+    thisHome.home = document.querySelector('a[href="#home"]');
     thisHome.order = document.querySelector('a[href="#order"]');
-    const order = document.querySelector('a[href="#order"]');
 
     thisHome.btnOrder = document.querySelector('.item-one');
     thisHome.btnBooking = document.querySelector('.item-two');
 
     thisHome.booking = document.querySelector('a[href="#booking"]');
-    const booking = document.querySelector('a[href="#booking"]');
-
-
   }
 
-   activePage() {
+  activePage() {
     const thisHome = this;
-    
+  
     if (thisHome.btnOrder) {
-        thisHome.btnOrder.addEventListener('click', function() {
-          // Add the "active" class to the "order" element
-          order.classList.toggle('active');
-          thisHome.order.classList.toggle('active');
-        });
-     }if(thisHome.btnBooking){
-        thisHome.btnBooking.addEventListener('click', function(){
-            booking.classList.toggle('active');
-            thisHome.booking.classList.toggle('active');
-        })
-     }
+      thisHome.btnOrder.addEventListener('click', function() {
+        order.classList.toggle('active');
+        thisHome.home.classList.remove('active');
+        thisHome.order.classList.toggle('active');
+      });
+    }
+  
+    if (thisHome.btnBooking) {
+      thisHome.btnBooking.addEventListener('click', function() {
+        booking.classList.toggle('active');
+        thisHome.home.classList.remove('active');
+        thisHome.booking.classList.toggle('active');
+      });
+    }
   }
+  
 }
 
 export default Home;
