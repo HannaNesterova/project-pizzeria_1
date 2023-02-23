@@ -35,7 +35,7 @@ class Booking {
     thisBooking.dom.address = document.querySelector(select.booking.addressInput);
     thisBooking.dom.startersCheck = document.querySelectorAll(select.booking.startersCheck);
     thisBooking.dom.orderConfirmationInputs = document.querySelectorAll('.order-confirmation input');
-    thisBooking.dom.starters = document.querySelectorAll(select.booking.starters);
+    thisBooking.dom.starters = document.querySelectorAll(select.booking.startersCheck);
   }
 
   initWidgets() {
@@ -256,7 +256,7 @@ class Booking {
     const payload = {
       date: thisBooking.datePicker.value,
       hour: thisBooking.hourPicker.value,
-      table: parseInt(thisBooking.dom.table),
+      table: parseInt(thisBooking.selectedTable),
       duration: thisBooking.hoursAmount.value,
       ppl: thisBooking.peopleAmount.value,
       phone: thisBooking.dom.phone.value,
@@ -269,6 +269,7 @@ class Booking {
         payload.starters.push(starter.value);
       }
     }
+
 
     const options = {
       method: 'POST',
@@ -285,11 +286,8 @@ class Booking {
         console.log('parsedResponse', parsedResponse);
         thisBooking.getData();
       });
-
   }
 
-
-    //thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
     
   }
 
