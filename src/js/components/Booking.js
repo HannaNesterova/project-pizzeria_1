@@ -251,8 +251,6 @@ class Booking {
     const thisBooking = this;
 
     const url = settings.db.url + '/' + settings.db.bookings;
-
-
     const payload = {
       date: thisBooking.datePicker.value,
       hour: thisBooking.hourPicker.value,
