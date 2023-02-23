@@ -88,6 +88,7 @@ export const classNames = {
     wrapperActive: 'active',
   },
   booking: {
+    table: 'table',
     loading: 'loading',
     tableBooked: 'booked',
     tableClicked: 'selected',
@@ -136,6 +137,21 @@ export const settings = {
     notRepeatParam: 'repeat=false',
     repeatParam: 'repeat_ne=false',
   },
+
+  tables: {
+    1: {
+      min: 2,
+      max: 4
+    },
+    2: {
+      min: 5,
+      max: 9
+    },
+    3: {
+      min: 2,
+      max: 4
+    }
+  }
 };
 
 export const templates = {

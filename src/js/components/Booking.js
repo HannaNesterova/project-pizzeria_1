@@ -11,7 +11,6 @@ class Booking {
     thisBooking.render(element);
     thisBooking.initWidgets();
     thisBooking.getData();
-    
 
     thisBooking.tablesClicked = []; // для чого вони сказали це створити,як це задіяти?
   }
@@ -42,22 +41,33 @@ class Booking {
   initWidgets() {
     const thisBooking = this;
     thisBooking.peopleAmount = new AmountWidget(thisBooking.dom.peopleAmount);
-    thisBooking.dom.peopleAmount.addEventListener('update', function () {});
-
+    thisBooking.dom.peopleAmount.addEventListener('update', function () {
+    });
+    
     thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount);
-    thisBooking.dom.hoursAmount.addEventListener('update', function () {});
-
+    thisBooking.dom.hoursAmount.addEventListener('update', function () {
+    });
+    
     thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
     thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
- 
+    
     thisBooking.dom.wrapper.addEventListener('updated', function () {
-      thisBooking.updateDOM();
-
-      thisBooking.dom.floor.addEventListener('click', function(event){
-        thisBooking.initTables(event);
-      });
+    thisBooking.updateDOM();
+    for (let table of thisBooking.dom.tables) {
+    table.classList.remove(classNames.booking.tableClicked);
+    }
     });
-  }
+
+    thisBooking.dom.floor.addEventListener('click', function (event) {
+    thisBooking.initTables(event);
+    });
+
+    thisBooking.dom.sendResBtn.addEventListener('click', function (event) {
+    event.preventDefault();
+    thisBooking.sendReservation();
+    }
+    );
+    }
 
   getData() {
     const thisBooking = this;
@@ -220,7 +230,7 @@ class Booking {
 
     if(event.target.classList.contains('table')){
       const isTableBooked = event.target.classList.contains('booked');
-      if(isTableBooked || isTableBooked == clickedTable){
+      if(isTableBooked){
         alert('The table has alredy booked'); 
       } else{
         const clickedTable = event.target.getAttribute('data-table');
@@ -236,58 +246,54 @@ class Booking {
   }
 
 
-  sendBooking() {
+
+  sendReservation(){
     const thisBooking = this;
+
     const url = settings.db.url + '/' + settings.db.bookings;
-    //let isChecked = false;
 
-    const phoneInput = thisBooking.dom.phone;
-
-    phoneInput.addEventListener('keypress', function(event) {
-      if (event.which < 48 || event.which > 57) {
-        event.preventDefault(); 
-      }
-    });
 
     const payload = {
-      date: thisBooking.date,
-      hour: utils.numberToHour(thisBooking.hour),
-      table: thisBooking.tableUnbooked,
-      duration:  parseInt(thisBooking.dom.duration.value),
-      people:  parseInt(thisBooking.dom.people.value),
-      phone: phoneInput.value,
-      mail: thisBooking.dom.address.value,
+      date: thisBooking.datePicker.value,
+      hour: thisBooking.hourPicker.value,
+      table: parseInt(thisBooking.dom.table),
+      duration: thisBooking.hoursAmount.value,
+      ppl: thisBooking.peopleAmount.value,
+      phone: thisBooking.dom.phone.value,
+      address: thisBooking.dom.address.value,
       starters: [],
     };
 
-    for (let domStarter of thisBooking.dom.starters) {
-      if (domStarter.checked == true) {
-        payload.starters.push(domStarter.value);
+    for(let starter of thisBooking.dom.starters){
+      if(starter.checked == true){
+        payload.starters.push(starter.value);
       }
     }
-    console.log('payload.starters', domStarter.value);
 
     const options = {
       method: 'POST',
       headers: {
-        'Content-type': 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(payload),
     };
 
     fetch(url, options)
-      .then(function (response) {
+      .then(function(response){
         return response.json();
-      }).then(function (parsedResponse) {
-        console.log('parsedResponse booking', parsedResponse);
-        thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
-  
-        //window.location.reload();
+      }) .then(function(parsedResponse){
+        console.log('parsedResponse', parsedResponse);
+        thisBooking.getData();
       });
-      thisBooking.updateDOM();
+
   }
 
-}
+
+    //thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
+    
+  }
+
+ 
 
 
 export default Booking;
