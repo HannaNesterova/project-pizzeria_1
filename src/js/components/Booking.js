@@ -52,22 +52,22 @@ class Booking {
     thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
     
     thisBooking.dom.wrapper.addEventListener('updated', function () {
-    thisBooking.updateDOM();
-    for (let table of thisBooking.dom.tables) {
-    table.classList.remove(classNames.booking.tableClicked);
-    }
+      thisBooking.updateDOM();
+      for (let table of thisBooking.dom.tables) {
+        table.classList.remove(classNames.booking.tableClicked);
+      }
     });
 
     thisBooking.dom.floor.addEventListener('click', function (event) {
-    thisBooking.initTables(event);
+      thisBooking.initTables(event);
     });
 
     thisBooking.dom.sendResBtn.addEventListener('click', function (event) {
-    event.preventDefault();
-    thisBooking.sendReservation();
+      event.preventDefault();
+      thisBooking.sendReservation();
     }
     );
-    }
+  }
 
   getData() {
     const thisBooking = this;
@@ -285,9 +285,7 @@ class Booking {
         thisBooking.getData();
       });
   }
-
-    
-  }
+}
 
  
 
