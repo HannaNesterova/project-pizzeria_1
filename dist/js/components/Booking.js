@@ -6,13 +6,13 @@ import HourPicker from './HourPicker.js';
 
 class Booking {
   constructor(element) {
-
+    //отримує посилання на контейнер, наданий у app.initBooking, як аргумент
     const thisBooking = this;
     thisBooking.render(element);
     thisBooking.initWidgets();
     thisBooking.getData();
 
-    thisBooking.tablesClicked = [];
+    thisBooking.tablesClicked = []; // для чого вони сказали це створити,як це задіяти?
   }
   render(wrapper){
     const thisBooking = this;
@@ -273,13 +273,19 @@ class Booking {
       },
       body: JSON.stringify(payload),
     };
-
     fetch(url, options)
-      .then(function(response){
-        return response.json();
-      }) .then(function(parsedResponse){
-        thisBooking.getData();
-      });
+    .then(function(response){
+      return response.json();
+    }) .then(function(parsedResponse){
+      thisBooking.getData();
+      thisBooking.dom.phone.value = '';
+      thisBooking.dom.address.value = '';
+      thisBooking.hoursAmount.value = '';
+      thisBooking.peopleAmount.value = '';
+      for(let starter of thisBooking.dom.starters){
+        starter.checked = false;
+      }
+    });
   }
 }
 
