@@ -1,0 +1,1629 @@
+{
+  "products": [
+    {
+      "id": "cake",
+      "class": "small",
+      "name": "Zio Stefano's Doughnut",
+      "price": 9,
+      "description": "Treat yourself with this soft, freshly baked cookie. The recipe has been handed down from generation to generation in our family and it has won us several first place prizes in local competitions.",
+      "images": [
+        "<img class=\"active\" src=\"images/doughnut.svg\">"
+      ]
+    },
+    {
+      "id": "breakfast",
+      "class": "small",
+      "name": "Zia Giulia's Breakfast",
+      "price": 9,
+      "description": "There's no better way to start your day than indulging yourself with a cup of fresh Italian coffee and crispy waffels. Made just for you on the spot, this breakfast combo has been our guests' favorite for over 50 years.",
+      "images": [
+        "<img class=\"active\" src=\"images/breakfast.svg\">"
+      ],
+      "params": {
+        "coffee": {
+          "label": "Coffee type",
+          "type": "radios",
+          "options": {
+            "latte": {
+              "label": "Latte",
+              "price": 1,
+              "default": true
+            },
+            "cappuccino": {
+              "label": "Cappuccino",
+              "price": 1
+            },
+            "espresso": {
+              "label": "Espresso",
+              "price": 1
+            },
+            "macchiato": {
+              "label": "Macchiato ",
+              "price": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "pizza",
+      "name": "Nonna Alba's Pizza",
+      "price": 20,
+      "description": "The true taste of Italy &ndash; homemade pizza as prepared by our grandmothers in old-fashoned brick ovens. Choose your favorite topping and enjoy your comfort food! All ingredients come straight from eco-friendly, trusted farms in the Italian countryside.",
+      "images": [
+        "<img class=\"active\" src=\"images/pizza/crust.svg\">",
+        "<img class=\"sauce-tomato\" src=\"images/pizza/tomato-sauce.svg\">",
+        "<img class=\"sauce-cream\" src=\"images/pizza/sour-cream.svg\">",
+        "<img class=\"toppings-salami\" src=\"images/pizza/salami.svg\">",
+        "<img class=\"toppings-olives\" src=\"images/pizza/olives.svg\">",
+        "<img class=\"toppings-redPeppers\" src=\"images/pizza/red-peppers.svg\">",
+        "<img class=\"toppings-greenPeppers\" src=\"images/pizza/green-peppers.svg\">",
+        "<img class=\"toppings-mushrooms\" src=\"images/pizza/mushrooms.svg\">",
+        "<img class=\"toppings-basil\" src=\"images/pizza/basil.svg\">"
+      ],
+      "params": {
+        "sauce": {
+          "label": "Sauce",
+          "type": "radios",
+          "options": {
+            "tomato": {
+              "label": "Tomato",
+              "price": 0,
+              "default": true
+            },
+            "cream": {
+              "label": "Sour cream",
+              "price": 2
+            }
+          }
+        },
+        "toppings": {
+          "label": "Toppings",
+          "type": "checkboxes",
+          "options": {
+            "olives": {
+              "label": "Olives",
+              "price": 2,
+              "default": true
+            },
+            "redPeppers": {
+              "label": "Red peppers",
+              "price": 2,
+              "default": true
+            },
+            "greenPeppers": {
+              "label": "Green peppers",
+              "price": 2,
+              "default": true
+            },
+            "mushrooms": {
+              "label": "Mushrooms",
+              "price": 2,
+              "default": true
+            },
+            "basil": {
+              "label": "Fresh basil",
+              "price": 2,
+              "default": true
+            },
+            "salami": {
+              "label": "Salami",
+              "price": 3
+            }
+          }
+        },
+        "crust": {
+          "label": "pizza crust",
+          "type": "select",
+          "options": {
+            "standard": {
+              "label": "standard",
+              "price": 0,
+              "default": true
+            },
+            "thin": {
+              "label": "thin",
+              "price": 2
+            },
+            "thick": {
+              "label": "thick",
+              "price": 2
+            },
+            "cheese": {
+              "label": "cheese in edges",
+              "price": 5
+            },
+            "wholewheat": {
+              "label": "wholewheat",
+              "price": 3
+            },
+            "gluten": {
+              "label": "with extra gluten",
+              "price": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "salad",
+      "name": "Nonno Alberto's Salad",
+      "price": 9,
+      "description": "A delicious salad made of fresh, home-grown products on a crispy lettuce base.",
+      "images": [
+        "<img class=\"active\" src=\"images/salad/plate.svg\">",
+        "<img class=\"ingredients-cucumber\" src=\"images/salad/cucumber.svg\" style=\"z-index: 1;\">",
+        "<img class=\"ingredients-tomatoes\" src=\"images/salad/tomatoes.svg\" style=\"z-index: 2;\">",
+        "<img class=\"ingredients-olives\" src=\"images/salad/salad-olives.svg\" style=\"z-index: 3;\">",
+        "<img class=\"ingredients-feta\" src=\"images/salad/feta.svg\" style=\"z-index: 4;\">",
+        "<img class=\"ingredients-herbs\" src=\"images/salad/herbs.svg\" style=\"z-index: 5;\">",
+        "<img class=\"ingredients-cheese\" src=\"images/salad/cheese.svg\" style=\"z-index: 6;\">",
+        "<img class=\"ingredients-pepper\" src=\"images/salad/black-pepper.svg\" style=\"z-index: 7;\">"
+      ],
+      "params": {
+        "ingredients": {
+          "label": "Ingredients",
+          "type": "checkboxes",
+          "options": {
+            "cucumber": {
+              "label": "Cucumber",
+              "price": 1,
+              "default": true
+            },
+            "tomatoes": {
+              "label": "Tomatoes",
+              "price": 1,
+              "default": true
+            },
+            "olives": {
+              "label": "Olives",
+              "price": 1,
+              "default": true
+            },
+            "feta": {
+              "label": "Feta cheese",
+              "price": 1
+            },
+            "cheese": {
+              "label": "Cheese",
+              "price": 1
+            },
+            "herbs": {
+              "label": "Fresh herbs",
+              "price": 1,
+              "default": true
+            },
+            "pepper": {
+              "label": "Black pepper",
+              "price": 1
+            }
+          }
+        }
+      }
+    }
+  ],
+  "orders": [
+    {
+      "address": "",
+      "phone": "",
+      "deliveryFee": 20,
+      "products": [
+        {
+          "id": "cake",
+          "amount": 4,
+          "price": 36,
+          "params": {},
+          "name": "Zio Stefano's Doughnut",
+          "priceSingle": 9
+        }
+      ],
+      "id": 1
+    },
+    {
+      "address": "",
+      "phone": "+380938031375",
+      "deliveryFee": 20,
+      "products": [
+        {
+          "id": "cake",
+          "amount": 4,
+          "price": 36,
+          "params": {},
+          "name": "Zio Stefano's Doughnut",
+          "priceSingle": 9
+        }
+      ],
+      "id": 2
+    },
+    {
+      "address": "",
+      "phone": "+380938031375",
+      "deliveryFee": 20,
+      "products": [
+        {
+          "id": "cake",
+          "amount": 4,
+          "price": 36,
+          "params": {},
+          "name": "Zio Stefano's Doughnut",
+          "priceSingle": 9
+        }
+      ],
+      "id": 3
+    },
+    {
+      "address": "14 ZEROMSKIEGO  Stree, Apt 2",
+      "phone": "+380938031375",
+      "deliveryFee": 20,
+      "products": [
+        {
+          "id": "cake",
+          "amount": 4,
+          "price": 36,
+          "params": {},
+          "name": "Zio Stefano's Doughnut",
+          "priceSingle": 9
+        }
+      ],
+      "id": 4
+    },
+    {
+      "address": "14 ZEROMSKIEGO  Stree, Apt 2",
+      "phone": "+380938031375",
+      "deliveryFee": 20,
+      "products": [
+        {
+          "id": "cake",
+          "amount": 4,
+          "price": 36,
+          "params": {},
+          "name": "Zio Stefano's Doughnut",
+          "priceSingle": 9
+        }
+      ],
+      "id": 5
+    },
+    {
+      "address": "14 ZEROMSKIEGO  Stree, Apt 2",
+      "phone": "+380938031375",
+      "deliveryFee": 20,
+      "products": [
+        {
+          "id": "cake",
+          "amount": 4,
+          "price": 36,
+          "params": {},
+          "name": "Zio Stefano's Doughnut",
+          "priceSingle": 9
+        }
+      ],
+      "id": 6
+    },
+    {
+      "address": "14 ZEROMSKIEGO  Stree, Apt 2",
+      "phone": "+380938031375",
+      "deliveryFee": 20,
+      "products": [
+        {
+          "id": "cake",
+          "amount": 4,
+          "price": 36,
+          "params": {},
+          "name": "Zio Stefano's Doughnut",
+          "priceSingle": 9
+        }
+      ],
+      "id": 7
+    },
+    {
+      "address": "14 ZEROMSKIEGO  Stree, Apt 2",
+      "phone": "+380938031375",
+      "deliveryFee": 20,
+      "products": [
+        {
+          "id": "cake",
+          "amount": 4,
+          "price": 36,
+          "params": {},
+          "name": "Zio Stefano's Doughnut",
+          "priceSingle": 9
+        }
+      ],
+      "id": 8
+    },
+    {
+      "address": "14 ZEROMSKIEGO  Stree, Apt 2",
+      "phone": "+380938031375",
+      "deliveryFee": 20,
+      "products": [
+        {
+          "id": "cake",
+          "amount": 4,
+          "price": 36,
+          "params": {},
+          "name": "Zio Stefano's Doughnut",
+          "priceSingle": 9
+        }
+      ],
+      "id": 9
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "date": "2023-02-20",
+      "hour": "12:30",
+      "table": 1,
+      "repeat": "daily",
+      "duration": 4,
+      "ppl": 3,
+      "starters": []
+    },
+    {
+      "id": 2,
+      "date": "2023-02-21",
+      "hour": "16:00",
+      "table": 3,
+      "repeat": "daily",
+      "duration": 2,
+      "ppl": 3,
+      "starters": [
+        "bread",
+        "lemonWater"
+      ]
+    },
+    {
+      "id": 3,
+      "date": "2023-02-22",
+      "hour": "12:00",
+      "table": 3,
+      "repeat": "daily",
+      "duration": 2,
+      "ppl": 3,
+      "starters": [
+        "bread",
+        "lemonWater"
+      ]
+    },
+    {
+      "id": 4,
+      "date": "2023-02-23",
+      "hour": "13:00",
+      "table": 2,
+      "repeat": "daily",
+      "duration": 4,
+      "ppl": 3,
+      "starters": []
+    },
+    {
+      "id": 5,
+      "date": "2023-02-23",
+      "hour": "18:00",
+      "table": 2,
+      "repeat": "daily",
+      "duration": 2,
+      "ppl": 3,
+      "starters": [
+        "lemonWater"
+      ]
+    }
+  ],
+  "bookings": [
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 1
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 2
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 3
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 4
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 5
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 6
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 7
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 8
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 9
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 10
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 11
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 12
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 13
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 14
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 15
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 16
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 17
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 18
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 19
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 20
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 21
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 22
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 23
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 24
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 25
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 26
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 27
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 28
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 29
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 30
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 31
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 32
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 33
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 34
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 35
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 36
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 37
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 38
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 39
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 40
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 41
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 42
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 43
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 44
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 45
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 46
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 47
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 48
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 49
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 50
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 51
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 52
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 53
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 54
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 55
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 56
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 57
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 58
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 59
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 60
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 61
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 62
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 63
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 64
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 65
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 66
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 67
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 68
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 69
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 70
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 71
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 72
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 73
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 74
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 75
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 76
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 77
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 78
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 79
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 80
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 81
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 82
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 83
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 84
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 85
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 86
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 87
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 88
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 89
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 90
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 91
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 92
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 93
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 94
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 95
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 96
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 97
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 98
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 99
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 100
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 101
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 102
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 103
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 104
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 105
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 106
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 107
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 108
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 109
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 110
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 111
+    },
+    {
+      "hour": "NaN:NaN",
+      "duration": 1,
+      "people": 1,
+      "phone": null,
+      "mail": "",
+      "starters": [],
+      "id": 112
+    },
+    {
+      "date": "2023-02-23",
+      "hour": "12:00",
+      "table": null,
+      "duration": 5,
+      "ppl": 4,
+      "phone": "+48792693385",
+      "address": "14 ZEROMSKIEGO  Stree, Apt 2",
+      "starters": [],
+      "id": 113
+    },
+    {
+      "date": "2023-02-28",
+      "hour": "15:00",
+      "table": null,
+      "duration": 2,
+      "ppl": 4,
+      "phone": "+380938031375",
+      "address": "nea@dt.com",
+      "starters": [],
+      "id": 114
+    },
+    {
+      "date": "2023-02-23",
+      "hour": "12:00",
+      "table": null,
+      "duration": 1,
+      "ppl": 1,
+      "phone": "",
+      "address": "",
+      "starters": [],
+      "id": 115
+    },
+    {
+      "date": "2023-02-23",
+      "hour": "12:00",
+      "table": null,
+      "duration": 1,
+      "ppl": 1,
+      "phone": "",
+      "address": "",
+      "starters": [],
+      "id": 116
+    },
+    {
+      "date": "2023-02-23",
+      "hour": "12:00",
+      "table": null,
+      "duration": 1,
+      "ppl": 1,
+      "phone": "",
+      "address": "",
+      "starters": [],
+      "id": 117
+    },
+    {
+      "date": "2023-02-23",
+      "hour": "12:00",
+      "table": null,
+      "duration": 1,
+      "ppl": 1,
+      "phone": "",
+      "address": "",
+      "starters": [],
+      "id": 118
+    },
+    {
+      "date": "2023-02-23",
+      "hour": "12:00",
+      "table": null,
+      "duration": 1,
+      "ppl": 1,
+      "phone": "",
+      "address": "",
+      "starters": [],
+      "id": 119
+    },
+    {
+      "date": "2023-02-23",
+      "hour": "12:00",
+      "table": 2,
+      "duration": 1,
+      "ppl": 1,
+      "phone": "",
+      "address": "",
+      "starters": [],
+      "id": 120
+    },
+    {
+      "date": "2023-02-23",
+      "hour": "12:00",
+      "table": 1,
+      "duration": 1,
+      "ppl": 1,
+      "phone": "",
+      "address": "",
+      "starters": [],
+      "id": 121
+    },
+    {
+      "date": "2023-02-26",
+      "hour": "19:00",
+      "table": null,
+      "duration": 3,
+      "ppl": 3,
+      "phone": "987t8r76t8",
+      "address": "vbbvn",
+      "starters": [
+        "water",
+        "bread"
+      ],
+      "id": 122
+    },
+    {
+      "date": "2023-02-26",
+      "hour": "19:00",
+      "table": 3,
+      "duration": 3,
+      "ppl": 3,
+      "phone": "987t8r76t8",
+      "address": "vbbvn",
+      "starters": [
+        "water",
+        "bread"
+      ],
+      "id": 123
+    },
+    {
+      "date": "2023-02-26",
+      "hour": "15:00",
+      "table": 3,
+      "duration": 2,
+      "ppl": 3,
+      "phone": "56н7567",
+      "address": "имтмм",
+      "starters": [
+        "water",
+        "bread"
+      ],
+      "id": 124
+    },
+    {
+      "date": "2023-02-26",
+      "hour": "17:00",
+      "table": 2,
+      "duration": 2,
+      "ppl": 8,
+      "phone": "56н7567",
+      "address": "имтмм",
+      "starters": [
+        "water",
+        "bread"
+      ],
+      "id": 125
+    },
+    {
+      "date": "2023-02-26",
+      "hour": "17:00",
+      "table": 1,
+      "duration": 2,
+      "ppl": 8,
+      "phone": "56н7567",
+      "address": "имтмм",
+      "starters": [
+        "water",
+        "bread"
+      ],
+      "id": 126
+    },
+    {
+      "date": "2023-02-26",
+      "hour": "17:00",
+      "table": 1,
+      "duration": 2,
+      "ppl": 8,
+      "phone": "56н7567",
+      "address": "имтмм",
+      "starters": [
+        "water",
+        "bread"
+      ],
+      "id": 127
+    },
+    {
+      "date": "2023-02-24",
+      "hour": "19:00",
+      "table": 3,
+      "duration": 3,
+      "ppl": 4,
+      "phone": "+48792693385",
+      "address": "14 ZEROMSKIEGO  Stree, Apt 2",
+      "starters": [
+        "water",
+        "bread"
+      ],
+      "id": 128
+    },
+    {
+      "date": "2023-02-23",
+      "hour": "15:00",
+      "table": 3,
+      "duration": 1,
+      "ppl": 1,
+      "phone": "",
+      "address": "",
+      "starters": [],
+      "id": 129
+    }
+  ]
+}
