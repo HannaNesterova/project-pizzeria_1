@@ -1,6 +1,6 @@
-/* global Handlebars, dataSource */
 
-const utils = {}; // eslint-disable-line no-unused-vars
+
+const utils = {};
 
 utils.createDOMFromHTML = function (htmlString) {
   let div = document.createElement('div');
@@ -89,7 +89,6 @@ utils.addDays = function (dateStr, days) {
   return dateObj;
 };
 
-//added new functions  to serve order
 utils.queryParams = function (params) {
   return Object.keys(params)
     .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))

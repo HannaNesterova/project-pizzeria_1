@@ -6,13 +6,13 @@ import HourPicker from './HourPicker.js';
 
 class Booking {
   constructor(element) {
-    //отримує посилання на контейнер, наданий у app.initBooking, як аргумент
+
     const thisBooking = this;
     thisBooking.render(element);
     thisBooking.initWidgets();
     thisBooking.getData();
 
-    thisBooking.tablesClicked = []; // для чого вони сказали це створити,як це задіяти?
+    thisBooking.tablesClicked = [];
   }
   render(wrapper){
     const thisBooking = this;
@@ -87,7 +87,6 @@ class Booking {
       eventsRepeat: [settings.db.repeatParam, endDateParam],
     };
 
-    console.log('getData params', params);
     const urls = {
       bookings:
         settings.db.url +
@@ -108,7 +107,6 @@ class Booking {
         '?' +
         params.eventsRepeat.join('&'),
     };
-    console.log('getData urls', urls);
 
     Promise.all([
       fetch(urls.bookings),
@@ -162,7 +160,6 @@ class Booking {
         }
       }
     }
-    console.log('thisBooking.booked', thisBooking.booked);
     thisBooking.updateDOM();
   }
 
@@ -281,7 +278,6 @@ class Booking {
       .then(function(response){
         return response.json();
       }) .then(function(parsedResponse){
-        console.log('parsedResponse', parsedResponse);
         thisBooking.getData();
       });
   }

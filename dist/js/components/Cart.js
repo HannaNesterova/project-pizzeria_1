@@ -5,10 +5,9 @@ class Cart {
   constructor(element) {
     const thisCart = this;
 
-    thisCart.products = []; // products вже існує в нашому класі кошика
+    thisCart.products = []; 
     thisCart.getElements(element);
     thisCart.initActions();
-    //thisCart.remove();
   }
 
   getElements(element) {
@@ -42,8 +41,7 @@ class Cart {
   initActions() {
     const thisCart = this;
     thisCart.dom.toggleTrigger.addEventListener('click', function (event) {
-      event.preventDefault(); //Обробником цього listener є перемикання класу,
-      //збереженого в classNames.cart.wrapperActive для thisCart.dom.wrapper.
+      event.preventDefault();
       thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
     });
     thisCart.dom.productList.addEventListener('updated', function () {
@@ -59,23 +57,12 @@ class Cart {
   }
 
   add(menuProduct) {
-    //productList?
     const thisCart = this;
 
-    /*generate HTML based on template*/
     const generatedHTML = templates.cartProduct(menuProduct);
-
-    //Потім замініть цей код elementом DOM і збережіть його в наступній константі, generatedDOM.
-    /*create element using utils.createElementFromHTML*/
     const generatedDOM = utils.createDOMFromHTML(generatedHTML);
-
-    /*find cart container*/
-    // let cartContainer = document.querySelector(select.containerOf.cart);
-
-    /*add element to */
     thisCart.dom.productList.appendChild(generatedDOM);
-    //thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
-    //передаємо ProductListб щоб потім викликати remove
+
     thisCart.products.push(
       new CartProduct(menuProduct, generatedDOM, thisCart.dom.productList)
     );
@@ -84,14 +71,13 @@ class Cart {
   update() {
     const thisCart = this;
     let deliveryFee = 0;
-    let totalNumber = 0; //для загальної кількості товарів
-    let subtotalPrice = 0; //загальна ціна за все
+    let totalNumber = 0;
+    let subtotalPrice = 0;
     let totalPrice = 0;
 
     for (let product of thisCart.products) {
-      //додайте for...of,який буде проходити через thisCart.products.
-      totalNumber += product.amount; //це збільшує totalNumber на кількість elementів даного продукту
-      subtotalPrice += product.price; //збільшиться subtotalPrice на його загальну ціну ( price)
+      totalNumber += product.amount;
+      subtotalPrice += product.price;
     }
     if (totalNumber) {
       deliveryFee = settings.cart.defaultDeliveryFee;
@@ -108,13 +94,12 @@ class Cart {
     let indexProduct = thisCart.products.indexOf(cartProduct);
     if (indexProduct !== -1) {
       thisCart.products.splice(
-        indexProduct, //знаходимо індекс продукту серед усих продуктів
-        1 //скільки елементів треба вирізати
+        indexProduct,
+        1
       );
-      cartProduct.dom.wrapper.remove(); //видаляємо з html
-      thisCart.update(); //оновлюємо саму корзину
+      cartProduct.dom.wrapper.remove();
+      thisCart.update();
     }
-    //звертаємось до корзини, до продуктів, вирізаємо(splice) продукт()
   }
   sendOrder() {
     const thisCart = this;
@@ -128,7 +113,6 @@ class Cart {
       deliveryFee: settings.cart.defaultDeliveryFee,
       products: [],
     };
-    console.log('payload', payload);
     for (let prod of thisCart.products) {
       payload.products.push(prod.getData());
     }
@@ -146,7 +130,6 @@ class Cart {
         return response.json();
       })
       .then(function (parsedResponse) {
-        console.log('parsedResponse', parsedResponse);
       });
   }
 }

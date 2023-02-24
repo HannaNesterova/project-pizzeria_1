@@ -49,8 +49,6 @@ class CartProduct {
 
   remove(){
     const thisCartProduct = this;
-    console.log(thisCartProduct);
-
     const event = new CustomEvent('remove' ,{
       bubbles: true,
       detail: {
@@ -69,7 +67,6 @@ class CartProduct {
     thisCartProduct.dom.remove.addEventListener('click', function(event){
       event.preventDefault();
       thisCartProduct.remove(event.detail.cartProduct);
-      console.log(thisCartProduct.dom.remove);
     });
   }
 

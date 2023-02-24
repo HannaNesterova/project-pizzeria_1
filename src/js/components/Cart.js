@@ -128,7 +128,6 @@ class Cart {
       deliveryFee: settings.cart.defaultDeliveryFee,
       products: [],
     };
-    console.log('payload', payload);
     for (let prod of thisCart.products) {
       payload.products.push(prod.getData());
     }
@@ -146,7 +145,6 @@ class Cart {
         return response.json();
       })
       .then(function (parsedResponse) {
-        console.log('parsedResponse', parsedResponse);
       });
   }
 }

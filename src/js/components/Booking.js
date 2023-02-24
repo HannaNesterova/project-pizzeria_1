@@ -87,7 +87,6 @@ class Booking {
       eventsRepeat: [settings.db.repeatParam, endDateParam],
     };
 
-    console.log('getData params', params);
     const urls = {
       bookings:
         settings.db.url +
@@ -108,7 +107,6 @@ class Booking {
         '?' +
         params.eventsRepeat.join('&'),
     };
-    console.log('getData urls', urls);
 
     Promise.all([
       fetch(urls.bookings),
@@ -162,7 +160,6 @@ class Booking {
         }
       }
     }
-    console.log('thisBooking.booked', thisBooking.booked);
     thisBooking.updateDOM();
   }
 
@@ -281,7 +278,6 @@ class Booking {
       .then(function(response){
         return response.json();
       }) .then(function(parsedResponse){
-        console.log('parsedResponse', parsedResponse);
         thisBooking.getData();
       });
   }

@@ -8,8 +8,6 @@ class AmountWidget extends BaseWidget {
 
     thisWidget.getElements(element);
     thisWidget.initActions();
-
-    // console.log('AmountWidget', AmountWidget);
   }
   getElements() {
     const thisWidget = this;
@@ -36,15 +34,15 @@ class AmountWidget extends BaseWidget {
 
   initActions() {
     const thisWidget = this;
-    //використовуємо пусту функцію, щоб додати в аргумент функцію
+
     thisWidget.dom.input.addEventListener('change', function () {
-      //thisWidget.setValue(thisWidget.dom.input.value);
+      thisWidget.setValue(thisWidget.dom.input.value);
       thisWidget.value = thisWidget.dom.input.value;
     });
-    //додати Listener click, для якого обробник зупинить дію за замовчуванням для цієї події
+  
     thisWidget.dom.linkDecrease.addEventListener('click', function (event) {
       event.preventDefault();
-      //і використовуватиме setValue з аргументом thisWidget.value мінус 1
+   
       thisWidget.setValue(thisWidget.value - 1);
     });
     thisWidget.dom.linkIncrease.addEventListener('click', function (event) {

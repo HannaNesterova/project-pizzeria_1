@@ -57,7 +57,6 @@ const app = {
         link.getAttribute('href') == '#' + pageId
       );
     }
-    /*add class Active to matching links, remove class Active from non-matching links */
   },
 
   initData: function () {
@@ -65,21 +64,18 @@ const app = {
     thisApp.data = {};
     const url = settings.db.url + '/' + settings.db.products;
 
-    fetch(url) //надсилаємо запит на вказану адресу кінцевої точки
+    fetch(url) 
       .then(function (rawResponse) {
         return rawResponse.json();
       })
       .then(function (parsedResponse) {
         thisApp.data.products = parsedResponse;
-        /*save parsedResponse as thisApp.data.products*/
         thisApp.initMenu();
-        /*execute initMenu method*/
       });
   },
 
   initMenu: function () {
     const thisApp = this;
-    //add ititMenu function
     for (let productData in thisApp.data.products) {
       new Product(
         thisApp.data.products[productData].id,
@@ -108,7 +104,7 @@ const app = {
   },
   initBooking: function () {
     const thisApp = this;
-    const bookingWidget = document.querySelector(select.containerOf.booking); //контейнер віджета резервування сторінки
+    const bookingWidget = document.querySelector(select.containerOf.booking);
     thisApp.booking = new Booking(bookingWidget);
   },
   initHome: function (){
