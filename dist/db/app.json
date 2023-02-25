@@ -329,6 +329,20 @@
         "bread"
       ],
       "id": 5
+    },
+    {
+      "date": "2023-02-24",
+      "hour": "18:30",
+      "table": 3,
+      "duration": 5,
+      "ppl": 4,
+      "phone": "+380938031375",
+      "address": "14 ZEROMSKIEGO  Stree, Apt 2",
+      "starters": [
+        "water",
+        "bread"
+      ],
+      "id": 6
     }
   ]
 }

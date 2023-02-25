@@ -4,6 +4,7 @@ export const select = {
     cartProduct: '#template-cart-product',
     bookingWidget: '#template-booking-widget',
     homeWidget: '#template-home-widget',
+    home: '.home-widget',
   },
   containerOf: {
     menu: '#product-list',

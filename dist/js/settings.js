@@ -4,6 +4,7 @@ export const select = {
     cartProduct: '#template-cart-product',
     bookingWidget: '#template-booking-widget',
     homeWidget: '#template-home-widget',
+    home: '.home-widget',
   },
   containerOf: {
     menu: '#product-list',
@@ -27,7 +28,7 @@ export const select = {
   },
   widgets: {
     amount: {
-      input: 'input.amount', 
+      input: 'input.amount', // CODE CHANGED
       linkDecrease: 'a[href="#less"]',
       linkIncrease: 'a[href="#more"]',
     },
@@ -41,6 +42,7 @@ export const select = {
       output: '.output',
     },
   },
+  // CODE ADDED START
   cart: {
     productList: '.cart__order-summary',
     toggleTrigger: '.cart__summary',
@@ -106,7 +108,8 @@ export const settings = {
     defaultValue: 1,
     defaultMin: 1,
     defaultMax: 9,
-  },
+  }, // CODE CHANGED
+  // CODE ADDED START
   cart: {
     defaultDeliveryFee: 20,
   },
@@ -122,6 +125,10 @@ export const settings = {
   },
   db: {
     url: '//' + window.location.hostname + (window.location.hostname=='localhost' ? ':3131' : ''),
+    // url:
+    //   '//' +
+    //   window.location.hostname +
+    //   (window.location.hostname == 'localhost' ? ':3131' : ''),
     products: 'products',
     orders: 'orders',
     product: 'product',

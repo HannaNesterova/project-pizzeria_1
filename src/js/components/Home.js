@@ -1,4 +1,4 @@
-import {templates} from '../settings.js';
+import {select, templates} from '../settings.js';
 import utils from '../utils.js';
 
 class Home {
@@ -34,6 +34,7 @@ class Home {
       thisHome.btnOrder.addEventListener('click', function() {
         order.classList.toggle('active');
         thisHome.home.classList.remove('active');
+        home.classList.remove('active');
         thisHome.order.classList.toggle('active');
       });
     }
@@ -42,6 +43,7 @@ class Home {
       thisHome.btnBooking.addEventListener('click', function() {
         booking.classList.toggle('active');
         thisHome.home.classList.remove('active');
+        home.classList.remove('active');
         thisHome.booking.classList.toggle('active');
       });
     }
