@@ -5,9 +5,10 @@ class Cart {
   constructor(element) {
     const thisCart = this;
 
-    thisCart.products = []; 
+    thisCart.products = []; // products вже існує в нашому класі кошика
     thisCart.getElements(element);
     thisCart.initActions();
+    //thisCart.remove();
   }
 
   getElements(element) {
@@ -41,7 +42,8 @@ class Cart {
   initActions() {
     const thisCart = this;
     thisCart.dom.toggleTrigger.addEventListener('click', function (event) {
-      event.preventDefault();
+      event.preventDefault(); //Обробником цього listener є перемикання класу,
+      //збереженого в classNames.cart.wrapperActive для thisCart.dom.wrapper.
       thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
     });
     thisCart.dom.productList.addEventListener('updated', function () {
@@ -57,12 +59,23 @@ class Cart {
   }
 
   add(menuProduct) {
+    //productList?
     const thisCart = this;
 
+    /*generate HTML based on template*/
     const generatedHTML = templates.cartProduct(menuProduct);
-    const generatedDOM = utils.createDOMFromHTML(generatedHTML);
-    thisCart.dom.productList.appendChild(generatedDOM);
 
+    //Потім замініть цей код elementом DOM і збережіть його в наступній константі, generatedDOM.
+    /*create element using utils.createElementFromHTML*/
+    const generatedDOM = utils.createDOMFromHTML(generatedHTML);
+
+    /*find cart container*/
+    // let cartContainer = document.querySelector(select.containerOf.cart);
+
+    /*add element to */
+    thisCart.dom.productList.appendChild(generatedDOM);
+    //thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
+    //передаємо ProductListб щоб потім викликати remove
     thisCart.products.push(
       new CartProduct(menuProduct, generatedDOM, thisCart.dom.productList)
     );
@@ -71,13 +84,14 @@ class Cart {
   update() {
     const thisCart = this;
     let deliveryFee = 0;
-    let totalNumber = 0;
-    let subtotalPrice = 0;
+    let totalNumber = 0; //для загальної кількості товарів
+    let subtotalPrice = 0; //загальна ціна за все
     let totalPrice = 0;
 
     for (let product of thisCart.products) {
-      totalNumber += product.amount;
-      subtotalPrice += product.price;
+      //додайте for...of,який буде проходити через thisCart.products.
+      totalNumber += product.amount; //це збільшує totalNumber на кількість elementів даного продукту
+      subtotalPrice += product.price; //збільшиться subtotalPrice на його загальну ціну ( price)
     }
     if (totalNumber) {
       deliveryFee = settings.cart.defaultDeliveryFee;
@@ -94,12 +108,13 @@ class Cart {
     let indexProduct = thisCart.products.indexOf(cartProduct);
     if (indexProduct !== -1) {
       thisCart.products.splice(
-        indexProduct,
-        1
+        indexProduct, //знаходимо індекс продукту серед усих продуктів
+        1 //скільки елементів треба вирізати
       );
-      cartProduct.dom.wrapper.remove();
-      thisCart.update();
+      cartProduct.dom.wrapper.remove(); //видаляємо з html
+      thisCart.update(); //оновлюємо саму корзину
     }
+    //звертаємось до корзини, до продуктів, вирізаємо(splice) продукт()
   }
   sendOrder() {
     const thisCart = this;
@@ -130,6 +145,7 @@ class Cart {
         return response.json();
       })
       .then(function (parsedResponse) {
+        //parsedResponse to function()
       });
   }
 }

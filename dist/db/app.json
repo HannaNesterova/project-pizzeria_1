@@ -265,84 +265,18 @@
   ],
   "bookings": [
     {
-      "date": "2023-02-24",
-      "hour": "15:30",
-      "table": 3,
-      "duration": 2,
+      "date": "2023-03-03",
+      "hour": "12:00",
+      "table": 2,
+      "duration": 5,
       "ppl": 4,
-      "phone": "fdhfh",
-      "address": "vgfdg",
+      "phone": "nbhvj,b",
+      "address": "hvghcghcv",
       "starters": [
         "water",
         "bread"
       ],
       "id": 1
-    },
-    {
-      "date": "2023-02-24",
-      "hour": "19:30",
-      "table": 3,
-      "duration": 3,
-      "ppl": 3,
-      "phone": "",
-      "address": "",
-      "starters": [],
-      "id": 2
-    },
-    {
-      "date": "2023-02-24",
-      "hour": "16:30",
-      "table": 1,
-      "duration": 3,
-      "ppl": 3,
-      "phone": "hfhgj",
-      "address": "hjghjgf",
-      "starters": [
-        "water"
-      ],
-      "id": 3
-    },
-    {
-      "date": "2023-02-24",
-      "hour": "12:00",
-      "table": 2,
-      "duration": 4,
-      "ppl": 4,
-      "phone": "+48792693385",
-      "address": "nea@dt.com",
-      "starters": [
-        "water",
-        "bread"
-      ],
-      "id": 4
-    },
-    {
-      "date": "2023-03-10",
-      "hour": "17:00",
-      "table": 2,
-      "duration": 5,
-      "ppl": 5,
-      "phone": "hjgmjhm",
-      "address": "u6uhj",
-      "starters": [
-        "water",
-        "bread"
-      ],
-      "id": 5
-    },
-    {
-      "date": "2023-02-24",
-      "hour": "18:30",
-      "table": 3,
-      "duration": 5,
-      "ppl": 4,
-      "phone": "+380938031375",
-      "address": "14 ZEROMSKIEGO  Stree, Apt 2",
-      "starters": [
-        "water",
-        "bread"
-      ],
-      "id": 6
     }
   ]
 }

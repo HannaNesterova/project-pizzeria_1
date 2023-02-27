@@ -274,18 +274,19 @@ class Booking {
       body: JSON.stringify(payload),
     };
     fetch(url, options)
-    .then(function(response){
-      return response.json();
-    }) .then(function(parsedResponse){
-      thisBooking.getData();
-      thisBooking.dom.phone.value = '';
-      thisBooking.dom.address.value = '';
-      thisBooking.hoursAmount.value = '';
-      thisBooking.peopleAmount.value = '';
-      for(let starter of thisBooking.dom.starters){
-        starter.checked = false;
-      }
-    });
+      .then(function(response){
+        return response.json();
+      }) .then(function(parsedResponse){
+        //parsedResponse to the function ()
+        thisBooking.getData();
+        thisBooking.dom.phone.value = '';
+        thisBooking.dom.address.value = '';
+        thisBooking.hoursAmount.value = '';
+        thisBooking.peopleAmount.value = '';
+        for(let starter of thisBooking.dom.starters){
+          starter.checked = false;
+        }
+      });
   }
 }
 
