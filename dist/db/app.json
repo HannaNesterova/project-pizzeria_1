@@ -265,17 +265,14 @@
   ],
   "bookings": [
     {
-      "date": "2023-03-03",
+      "date": "2023-02-28",
       "hour": "12:00",
-      "table": 2,
-      "duration": 5,
-      "ppl": 4,
-      "phone": "nbhvj,b",
-      "address": "hvghcghcv",
-      "starters": [
-        "water",
-        "bread"
-      ],
+      "table": null,
+      "duration": 1,
+      "ppl": 1,
+      "phone": "",
+      "address": "",
+      "starters": [],
       "id": 1
     }
   ]

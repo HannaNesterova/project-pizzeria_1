@@ -144,7 +144,7 @@ class Cart {
       .then(function (response) {
         return response.json();
       })
-      .then(function (parsedResponse) {
+      .then(function () {
         //parsedResponse to function()
       });
   }

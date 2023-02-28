@@ -204,10 +204,11 @@
     width: 190px;
     height: 190px;
     border-radius: 5px;
-      &:hover{
-        opacity: 0.5;
-        cursor: pointer;
-      }
+    
+    &:hover{
+      opacity: 0.5;
+      cursor: pointer;
+    }
   }
 
   .icons-img{
@@ -216,13 +217,6 @@
     gap: 10px;
     align-items: center;
   }
-
-  /*.img-boot{
-    &:hover{
-      opacity: 0.5;
-      cursor: pointer;
-    }
-  }*/
 
   .img-foot_1{
     position: relative;
@@ -371,7 +365,7 @@
 
   .heart{
     position: absolute;
-    color: #ff6b6b;
+    color: #ff2828;
     padding-right: 20px;
     top: 25%;
     left: 30%;
